@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-
+//Schema for the recipes
 const recipeSchema = new Schema ({
     title: String,
     readyInMinutes: Number,
@@ -30,6 +30,6 @@ const recipeSchema = new Schema ({
 });
 
 
-
+// Export the recipes schema
 const RecipeModel = mongoose.model("recipe", recipeSchema);
 module.exports = RecipeModel;
