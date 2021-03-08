@@ -1,0 +1,17 @@
+<h1>{{recipe.title}}</h1>
+
+<h2>Ready in {{recipe.readyInMinutes}} minutes</h2>
+<h3>Suitable for: {{recipe.diets}} diets</h3>
+<h2>Ingredients: </h2>
+<ul>
+    {{#each recipe.extendedIngredients}}
+    <li>{{this.name}}</li>
+    {{/each}}
+</ul>
+<img src="{{recipe.image}}" alt="recipe photo">
+
+<h3>Summary:</h3>
+<p>{{recipe.summary}}</p>
+
+<h3>Instructions:</h3>
+<p>{{recipe.instructions}}</p>

@@ -1,0 +1,20 @@
+
+
+<h1>Search by Ingredients :</h1>
+<h2>What's in your fridge?</h2>
+<form method="post" action="/recipes">
+
+<input type="text" placeholder="ingredient 1" name="ingredient1">
+<input type="text" placeholder="ingredient 2" name="ingredient2">
+<input type="text" placeholder="ingredient 3" name="ingredient3">
+<button>OK</button>
+</form>
+
+{{!-- <h1>List of recipes by name:</h1> --}}
+
+<h2>Click a recipe's name for details</h2>
+<ul>
+{{#each recipes}}
+<li><a href="/recipes/{{this.id}}">{{this.title}}</a></li>
+{{/each}}
+</ul>
