@@ -7,9 +7,9 @@ const RecipeModel = require("./../../models/Recipe.model"); // fetch the model t
 // const URL = `https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=${process.env.API_KEY}`; // endpoint here :)
 
 
-API_KEY= "3c77e62d90d04a6587e94dba83509eba"
-API_KEY1= "7988f333580e414fb99aa98ee251dfee"
-API_KEY2= "a1854d8e765d4cd5ae6b73760b737be2"
+// API_KEY= "3c77e62d90d04a6587e94dba83509eba"
+// API_KEY1= "7988f333580e414fb99aa98ee251dfee"
+// API_KEY2= "a1854d8e765d4cd5ae6b73760b737be2"
 
 let id = 4950;
 
@@ -26,7 +26,7 @@ async function insertRecipes() {
     let recipe = apiRes.data
     // console.log(recipe);
     const inserted = await RecipeModel.insertMany(recipe); // insert docs in db
-    console.log(`seed sneakers done : ${inserted.length} documents inserted !`);
+    console.log(`seed recipes done : ${inserted.length} documents inserted !`);
     
     console.log(id);
   } catch (err) {
