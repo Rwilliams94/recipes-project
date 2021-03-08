@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+ <body>
+    <div class="content">
+    <header id="nav-bar" class="check">
+        <h2 id="logo">Recipe Hunter</h2>
+        <nav id="page-links">
+            <a href="/">Home</a>
+            <a href="/recipes">Recipes</a>
+            <a href="/about">About</a>
+            {{#unless isLoggedIn}}
+            <a  href="/signin" id="nav_login" class="button-ternary flexed-item nav-end-item">
+            <span class="btn-text">Sign in</span>
+            </a>
+            {{/unless}}
+            {{#if isLoggedIn}}
+            <a  href="/auth/logout" id="nav_logout" class="button-ternary flexed-item nav-end-item">
+              <span class="btn-text">Log out</span>
+            </a>
+            {{/if}}
+        </nav>
+        
+    </header>
+  
+    {{{body}}}
+    
+    </div>
+    {{!-- {{> footer}} --}}
+    
+    <script src="/js/index.js"></script>
+</body>
+</html>
