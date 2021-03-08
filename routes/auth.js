@@ -9,7 +9,7 @@ const UserModel = require("./../models/User.model");
 //GET signin
 
 router.get("/signin", (req,res, next)=>{
-
+    console.log("session ====>", req.session);
     res.render('auth/signin');
 
 });
@@ -52,12 +52,13 @@ router.post("/signin", async (req, res, next)=>{
                     res.redirect("/auth/signin");
                 } else {
                     console.log("correct");
-                    // const userObject = foundUser.toObject();
-                    // delete userObject.password; 
+                    const userObject = foundUser.toObject();
+                    delete userObject.password; 
                     // console.log(req.session, "before defining current user");
-                    // req.session.currentUser = userObject; // Stores the user in the session (data server side + a cookie is sent client side)
+                    req.session.currentUser = userObject; // Stores the user in the session (data server side + a cookie is sent client side)
                     // req.flash("success", "Successfully logged in...");
-                    res.redirect("/");
+                    res.redirect("/").render("/", {userInSession: req.session.currentUser})
+                    
                 }
         }
     } catch (err) {

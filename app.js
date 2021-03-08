@@ -18,27 +18,29 @@ const session = require("express-session");
 const dev_mode = false;
 const logger = require("morgan");
 
-
-
-// initial config
-
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-hbs.registerPartials(path.join(__dirname + "/views/partial"));
-app.use(cookieParser());
-
 // config logger (for debug)
 
 app.use(logger('dev'));
 
+// initial config
+
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
+hbs.registerPartials(path.join(__dirname + "/views/partial"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+//SESSION SETUP
+
+require('./config/session')(app);
+
+
 // router set up
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const recipesRouter = require('./routes/recipes')
 
@@ -47,21 +49,6 @@ app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/recipes', recipesRouter);
 
-
-//SESSION SETUP
-
-// app.use(
-//   session({
-//     secret: process.env.SESSION_SECRET,
-//     cookie: { maxAge: 60000 }, // in millisec
-//     store: new MongoStore({
-//       mongooseConnection: mongoose.connection,
-//       ttl: 24 * 60 * 60, // 1 day
-//     }),
-//     saveUninitialized: true,
-//     resave: true,
-//   })
-// );
 
 
 // below, site_url is used in partials/shop_head.hbs to perform ajax request (var instead of hardcoded)
