@@ -1,9 +1,8 @@
 // configs/session.config.js
 
 const session = require('express-session');
-console.log(session)
 
-const MongoStore = require('connect-mongo')(session);
+// const MongoStore = require("connect-mongo")(session);
 
 const mongoose = require('mongoose')
 
@@ -18,10 +17,10 @@ module.exports = app => {
         httpOnly: true,
         maxAge: 60000 // 60 * 1000 ms === 1 min
       },
-      store: new MongoStore({
-      mongooseConnection: mongoose.connection,
-      ttl: 60 * 60 * 24
-    })
+    //   store: new MongoStore({
+    //   mongooseConnection: mongoose.connection,
+    //   ttl: 60 * 60 * 24
+    // })
     })
   );
 };

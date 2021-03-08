@@ -1,30 +1,28 @@
-<section class="sign form-container">
+<section class="signup form-container">
   <header class="form-header">
     <h1 class="form-title">Welcome to recipes</h1>
-    <p class="form-subtitle">The home of food, friend and fun</p>
+    <p class="form-subtitle">The home of food, friends and fun</p>
   </header>
 
-  {{!-- {{#if msg}}
+  {{#if msg}}
   <p class="message {{msg.status}}">{{msg.text}}</p>
-  {{/if}} --}}
+  {{/if}}
 
-  {{>flash_message}}
+ {{>flash_message}}
 
   <form method="post" action="/auth/signup" id="form_user">
-    <div class="form-item-wrapper flexed-item">
+    <div class="form-input">
       <label for="userName" class="label-ref label">Name</label>
       <input id="userName" type="text" name="userName" class="input-text input" placeholder="Username" required value="Ro">
-    </div>
-    <div class="form-item-wrapper flexed-item">
+    
+    
       <label for="email" class="label-ref label">Email</label>
       <input id="email" type="email" name="email"  class="input-text input" placeholder="albert.biceps@gmail.com" required value="yo@gui.com">
-    </div>
-    <div class="form-item-wrapper flexed-item">
+    
       <label for="password" class="label-ref label">Password</label>
       <input id="password" type="password" name="password" class="input-text input" placeholder="••••••" required value="1234">
-    </div>
-    <div class="form-item-wrapper flexed-item">
-     <label for="diet">Dietary Requirements</label>
+   
+     <label for="diet" class="label">Dietary Requirements</label>
      <select name="dietaryRequirements" id="diet" multiple>
          <option value="vegan">Vegan</option>
          <option value="vegetarian">Vegetarian</option>
@@ -32,6 +30,8 @@
          <option value="dairyFree">Dairy Free</option>
      </select>
     </div>
+
+ 
     
     <button class="button-primary white">Create Account</button>
   </form>
