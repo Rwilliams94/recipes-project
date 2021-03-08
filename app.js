@@ -1,27 +1,84 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
 require("dotenv").config();
+require("./config/mongodb"); // database initial setup
+// require("./helpers/hbs"); // utils for hbs templates
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
-var app = express();
+// base dependencies
 
-// view engine setup
+const path = require("path");
+const express = require("express");
+const app = express();
+const createError = require("http-errors");
+const cookieParser = require("cookie-parser");
+const flash = require("connect-flash");
+const hbs = require("hbs");
+const mongoose = require("mongoose");
+const session = require("express-session");
+// const MongoStore = require("connect-mongo")(session);
+const dev_mode = false;
+const logger = require("morgan");
+
+
+
+// initial config
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+hbs.registerPartials(path.join(__dirname + "/views/partial"));
+app.use(cookieParser());
+
+// config logger (for debug)
+
+app.use(logger('dev'));
+
+// router set up
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
+const recipesRouter = require('./routes/recipes')
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/auth', authRouter);
+app.use('/recipes', recipesRouter);
+
+
+//SESSION SETUP
+
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     cookie: { maxAge: 60000 }, // in millisec
+//     store: new MongoStore({
+//       mongooseConnection: mongoose.connection,
+//       ttl: 24 * 60 * 60, // 1 day
+//     }),
+//     saveUninitialized: true,
+//     resave: true,
+//   })
+// );
+
+
+// below, site_url is used in partials/shop_head.hbs to perform ajax request (var instead of hardcoded)
+// app.locals.site_url = process.env.SITE_URL;
+
+app.use(flash());
+
+// CUSTOM MIDDLEWARES
+
+// if (dev_mode === true) {
+//   app.use(require("./middlewares/devMode")); // active le mode dev pour éviter les deconnexions
+//   app.use(require("./middlewares/debugSessionInfos")); // affiche le contenu de la session
+// }
+
+// app.use(require("./middlewares/exposeLoginStatus")); // expose le status de connexion aux templates
+// app.use(require("./middlewares/exposeFlashMessage")); // affiche les messages dans le template
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
