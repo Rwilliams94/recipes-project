@@ -5,19 +5,20 @@ require("./config/mongodb"); // database initial setup
 
 // base dependencies
 
-const path = require("path");
-const express = require("express");
-const app = express();
 const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
 const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 const flash = require("connect-flash");
 const hbs = require("hbs");
 const mongoose = require("mongoose");
 const session = require("express-session");
-const MongoStore = require("connect-mongo").default;
-const dev_mode = false;
-const logger = require("morgan");
+// const MongoStore = require("connect-mongo").default;
 
+const dev_mode = false;
+
+const app = express();
 // config logger (for debug)
 
 app.use(logger('dev'));
@@ -34,20 +35,37 @@ app.use(cookieParser());
 
 //SESSION SETUP
 
-// app.use(
-//   session({
-//     secret: process.env.SESSION_SECRET,
-//     cookie: { maxAge: 60000 }, // in millisec
-//     store: new MongoStore({
-//       mongoUrl: mongoose.connection,
-//       ttl: 24 * 60 * 60, // 1 day
-//     }),
-//     saveUninitialized: true,
-//     resave: true,
-//   })
-// );
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: 'none',
+      httpOnly: true,
+      maxAge: 60000 // 60 * 1000 ms === 1 min
+    },
+  //   store: new MongoStore({
+  //   mongooseConnection: mongoose.connection,
+  //   ttl: 60 * 60 * 24
+  // })
+  })
+);
+;
 
-require('./config/session')(app);
+// flash messages
+
+app.use(flash());
+
+//custom middlewares
+
+app.use(require("./middlewares/exposeLoginStatus")); // expose le status de connexion aux templates
+app.use(require("./middlewares/exposeFlashMessage")); // affiche les messages dans le template
+
+if (dev_mode === true) {
+  app.use(require("./middlewares/devMode")); // active le mode dev pour éviter les deconnexions
+  app.use(require("./middlewares/debugSessionInfos")); // affiche le contenu de la session
+}  
 
 
 // router set up
@@ -67,19 +85,7 @@ app.use('/recipes', recipesRouter);
 // below, site_url is used in partials/shop_head.hbs to perform ajax request (var instead of hardcoded)
 // app.locals.site_url = process.env.SITE_URL;
 
-app.use(flash());
 
-
-
-// CUSTOM MIDDLEWARES
-
-if (dev_mode === true) {
-  app.use(require("./middlewares/devMode")); // active le mode dev pour éviter les deconnexions
-  app.use(require("./middlewares/debugSessionInfos")); // affiche le contenu de la session
-}
-
-app.use(require("./middlewares/exposeLoginStatus")); // expose le status de connexion aux templates
-app.use(require("./middlewares/exposeFlashMessage")); // affiche les messages dans le template
 
 
 // catch 404 and forward to error handler
@@ -97,5 +103,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
 
 module.exports = app;

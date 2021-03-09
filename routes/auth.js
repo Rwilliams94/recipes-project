@@ -36,37 +36,31 @@ router.get( "/signout", (req, res, next)=> {
 
 router.post("/signin", async (req, res, next)=>{
     
-    try{
+
       const { email, password } = req.body;
       const foundUser = await UserModel.findOne({ email: email });
 
       if (!foundUser) {
-        // req.flash("error", "Invalid credentials");
+        req.flash("error", "Invalid credentials");
         res.redirect("/auth/signin");
       } else {
         const isSamePassword = bcrypt.compareSync(password, foundUser.password);
 
-        if (!isSamePassword) {
+      if (!isSamePassword) {
           
           req.flash("error", "Invalid credentials");
-          // res.redirect("/auth/signin");
-        } else {
-          
+          res.redirect("/auth/signin");
+      } else {
           const userObject = foundUser.toObject();
           delete userObject.password;
           // console.log(req.session, "before defining current user");
           req.session.currentUser = userObject; // Stores the user in the session (data server side + a cookie is sent client side)
-          // req.flash("success", "Successfully logged in...");
-          res
-            .redirect("/")
-            .render("/", { userInSession: req.session.currentUser });
-        }
-      }
-    } catch (err) {
-      console.log(err);
-    }
+          req.flash("success", "Successfully logged in...");
 
-    
+          res.redirect("/")
+
+      }
+    }
 
 });
     
