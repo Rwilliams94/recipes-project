@@ -196,6 +196,17 @@ font-weight: 600;
 
 }
 
+.flash-msg {
+    background: chocolate;
+    border: black 1px solid;
+    color: black;
+}
+
+.msg {
+    border: black 2px solid;
+    width: 20px;
+    height: 100px;
+}
 /* recipes */
 
 

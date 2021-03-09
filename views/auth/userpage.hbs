@@ -1,0 +1,10 @@
+<h1>User page</h1>
+
+{{#if user}}
+<h2>{{user.email}}</h2>
+<h2>{{user.userName}}</h2>
+<h2>{{user.password}}</h2>
+<h2>{{user.dietaryRequirements}}</h2>
+{{else}}
+<p>no user logged in</p>
+{{/if}}
