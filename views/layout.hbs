@@ -5,6 +5,13 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="/javascripts/APIHandler.js"></script>
+    {{!-- <script type="module" src="/javascripts/commands"></script> --}}
+    {{#if css}}
+    <link rel='stylesheet' href='/stylesheets/{{css}}.css' />
+    {{/if}}
+    {{#if js}}
+    <script type="module" src="/javascript/{{js}}.js"></script>
+    {{/if}}
   </head>
  <body>
     <div class="content">

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 
+
 body {
     font-family: Roboto;
     background:white;
@@ -207,7 +208,27 @@ font-weight: 600;
     width: 20px;
     height: 100px;
 }
+
+
 /* recipes */
+
+#search-results-box {
+    width: 500px;
+    max-height: 600px; 
+    text-overflow: ellipsis;
+    border: black 2px solid;
+    
+}
+
+#search_results {
+    width: 450px;
+    max-height: 500px; 
+    display: block;
+    overflow: scroll;
+    list-style: none;
+    padding: 0px 10px;
+    text-overflow: ellipsis;
+}
 
 
 #recipes {
