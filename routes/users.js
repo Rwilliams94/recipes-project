@@ -1,15 +1,8 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 const GuestModel = require("./../models/guest.model");
 
-
-router.get('/', function(req, res, next) {
-  res.render('users')
-  .then()
-  .catch(err => {
-    console.log(err);
-  });
-});
+router.get('/', (req, res, next) => {res.render('users')})
 
 
 //------------GUESTS--------------
