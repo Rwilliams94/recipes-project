@@ -1,8 +1,18 @@
 <h1>User</h1>
 
+<section>
+{{#each guests}}
 <div>
-    <p>{{guests}}</p>
+<h2>{{this.name}}</h2>
+{{#each this.dietaryRequirements}}
+<p>{{this}}</p>
+{{/each}}
+<a href="/users/guestUpdate/{{this.id}}">Update guest</a><br>
+<a href="/users/delete/{{this.id}}">X</a>
 </div>
+<br>
+{{/each}}
+</section>
 
 <div>
    <a href="/users/guest">add a guest</a>
