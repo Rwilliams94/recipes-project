@@ -1,16 +1,17 @@
-
 <h1>heelllo?</h1>
+
+<h2>Welcome!</h2>
+{{#if foodJoke}}
+<p id="food-joke"><b>Random joke :) </b>{{foodJoke}}</p>
+{{/if}}
+
 <div id="recipe-roller">
-    <div class="post-box">
-        <img src="" alt="">
-        <h2>recipe name</h2>
-    </div>
-    <div class="post-box">
-        <img src="" alt="">
-        <h2>recipe name</h2>
-    </div>
-    <div class="post-box">
-        <img src="" alt="">
-        <h2>recipe name</h2>
-    </div>
+    {{#each randomRecipes}}
+    <a href="/recipes/{{this._id}}">
+        <div class="post-box">
+            <img src="{{this.image}}" alt="recipe image">
+            <h2>{{this.title}}</h2>
+        </div>
+    </a>
+    {{/each}}
 </div>

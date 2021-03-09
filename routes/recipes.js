@@ -4,7 +4,7 @@ const RecipeModel = require("./../models/Recipe.model");
 
 // landing page: search tool and list of recipes
 router.get("/", (req, res, next) => {
-    RecipeModel.find()
+    RecipeModel.find().sort("title")
     .then(recipes=> 
     res.render("recipes/recipes-home", {recipes}))
     .catch(next)

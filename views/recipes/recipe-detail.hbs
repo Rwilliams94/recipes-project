@@ -1,17 +1,47 @@
 <h1>{{recipe.title}}</h1>
 
-<h2>Ready in {{recipe.readyInMinutes}} minutes</h2>
-<h3>Suitable for: {{recipe.diets}} diets</h3>
-<h2>Ingredients: </h2>
+<h3>Preparation: {{recipe.readyInMinutes}} minutes</h3>
+
+<div id="dish-type"></div>
+<h4>Type of dish:</h4>
 <ul>
-    {{#each recipe.extendedIngredients}}
-    <li>{{this.name}}</li>
+    {{#each recipe.dishTypes}}
+    <li>{{this}}</li>
     {{/each}}
 </ul>
+
+{{!-- <h4>Suitable for: {{recipe.diets}} diets</h4> --}}
+<ul id="diets">
+    {{#if recipe.vegetarian}} <li>vegetarian</li> {{/if}}
+    {{#if recipe.glutenFree}} <li>gluten free</li>{{/if}}
+    {{#if recipe.vegan}} <li>vegan</li> {{/if}}
+    {{#if recipe.dairyFree}} <li>dairy free</li> {{/if}}
+</ul>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ingredient</th>
+            <th>Amount</th>
+            <th>Unit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each recipe.extendedIngredients}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.amount}}</td>
+            <td>{{this.unit}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
 <img src="{{recipe.image}}" alt="recipe photo">
 
 <h3>Summary:</h3>
 <p>{{recipe.summary}}</p>
 
+{{#if recipe.instructions}}
 <h3>Instructions:</h3>
 <p>{{recipe.instructions}}</p>
+{{/if}}
