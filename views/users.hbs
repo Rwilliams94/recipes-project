@@ -3,12 +3,16 @@
 <section>
 {{#each guests}}
 <div>
+<<<<<<< HEAD
 <h2>{{this.name}}</h2>
 {{#each this.dietaryRequirements}}
 <p>{{this}}</p>
 {{/each}}
 <a href="/users/guestUpdate/{{this.id}}">Update guest</a><br>
 <a href="/users/delete/{{this.id}}">X</a>
+=======
+    {{!-- <p>{{guests}}</p> --}}
+>>>>>>> 6aa93daecbcf80bb1d5b53c99680a3318ae30259
 </div>
 <br>
 {{/each}}
