@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 
 // Guests list
 router.get("/", (req, res, next) => {
-  SneakerModel.find()
+  GuestModel.find()
   .then(guests => {
       res.render("guests/guestList", {guests});
   })
@@ -54,8 +54,6 @@ router.get('/users/:id', (req, res) => {
           console.log(error);
       });
   });
-
-
 
 
 module.exports = router;
