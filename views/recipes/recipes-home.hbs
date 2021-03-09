@@ -10,6 +10,12 @@
 <button>OK</button>
 </form>
 
+<ul id="search_results">
+    <li>check me out</li>
+    {{#each ajaxRecipes}}
+    <li>{{this.title}}</li>
+    {{/each}}
+</ul>
 
 <h2>Click a recipe's name for details</h2>
 <ul>

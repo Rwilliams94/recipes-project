@@ -3,12 +3,14 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    {{!-- <script type="module" src="/javascripts/commands"></script> --}}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="/javascripts/APIHandler.js"></script>
   </head>
  <body>
     <div class="content">
     <header id="nav-bar" class="check">
         <h2 id="logo">Recipe Hunter</h2>
+        <input id="search_input" type="text" class="input">
         <nav id="page-links">
             <a href="/">Home</a>
             <a href="/recipes">Recipes</a>
