@@ -4,11 +4,11 @@
     <p class="form-subtitle">Enjoy yourself and be comfortable </p>
   </header>
 
-  {{#if msg}}
-  <p class="message {{msg.status}}">{{msg.text}}</p>
-  {{/if}}
+  {{!-- {{#if errorMessage}}
+  <p class="error">{{errorMessage}}</p>
+  {{/if}} --}}
 
- {{>flash_message}}
+ {{>flashMessage}}
 
   <form method="post" action="/auth/signin" id="form_user">
     <div class="form-input">

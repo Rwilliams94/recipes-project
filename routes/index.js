@@ -12,7 +12,8 @@ function getRecipes(URL) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('home');
+ 
+  res.render('home', {toto: req.flash("success")});
 });
 
 router.get("/recipe", async (req, res, next) => {
