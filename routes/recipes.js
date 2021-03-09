@@ -42,7 +42,13 @@ router.post("/", (req, res, next) => {
 // details on selected recipe
 router.get("/:id", (req, res, next) => {
   RecipeModel.findById(req.params.id)
-    .then((recipe) => res.render("recipes/recipe-detail", { recipe }))
+    .then((recipe) =>
+      res.render("recipes/recipe-detail", {
+        recipe,
+        title: "Recipe details",
+        js: "recipe-detail",
+      })
+    )
     .catch(next);
 });
 
