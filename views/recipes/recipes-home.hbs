@@ -1,5 +1,12 @@
 
 
+    <ul id="search_results">
+        {{#each searchRes}}
+        <li>{{this.title}}</li>
+        {{/each}}
+    </ul>
+
+
 <h1>Search by Ingredients :</h1>
 <h2>What's in your fridge?</h2>
 <form method="post" action="/recipes">
@@ -10,13 +17,6 @@
 <button>OK</button>
 </form>
 
-<div id="search-results-box">
-    <ul id="search_results">
-        {{#each searchRes}}
-        <li>{{this.title}}</li>
-        {{/each}}
-    </ul>
-</div>
 
 <h2>Click a recipe's name for details</h2>
 <ul>
