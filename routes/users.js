@@ -1,36 +1,61 @@
 var express = require('express');
 var router = express.Router();
-const axios = require("axios");
-
-const URL = `https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=${process.env.API_KEY}`; // endpoint here :)
+const GuestModel = require("./../models/guest.model");
 
 
-
-// function getRecipes(URL) {
-//   return axios.get(URL);
-// }
-
-/* GET users listing. */
-router.get("/", async (req, res, next) => {
-  try {
-    idFinderURL = `https://api.spoonacular.com/recipes/1/information?includeNutrition=false&apiKey=${process.env.API_KEY}`
-    const apiRes = await getRecipes(idFinderURL);
-    let recipes = apiRes.data;
-        
-    console.log(recipes);
-    res.status(200).render("index", { recipes: recipes});
-  } catch (err) {
-    next(err);
-  }
-});
-
-
-
-
-
-/* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.render('users')
+  .then()
+  .catch(err => {
+    console.log(err);
+  });
 });
+
+
+//------------GUESTS--------------
+
+// Guests list
+router.get("/", (req, res, next) => {
+  SneakerModel.find()
+  .then(guests => {
+      res.render("guests/guestList", {guests});
+  })
+  .catch(err=>console.error(err));
+});
+
+
+// Create new guest
+router.get("/guest", (req, res) => {
+  res.render("guests/guestAdd");
+});
+
+router.post("/guestAdd", (req, res, next) => {
+  const { name, dietaryRequirements } = req.body;
+  GuestModel.create(req.body)
+  .then(() => {
+    res.redirect("/");
+  })
+  .catch((error) => {
+    next(error);
+  });
+});
+
+
+
+// Update guest
+router.get('/users/:id', (req, res) => {
+
+  GuestModel.findById(req.params.id)
+
+      .then(style => {
+          res.render('users/guestUpdate', {style});
+      })
+      .catch(error => {
+          console.log(error);
+      });
+  });
+
+
+
 
 module.exports = router;
