@@ -17,7 +17,7 @@ router.post("/", (req, res, next) => {
     if (req.body.ingredient2) searchedIngredients.push(req.body.ingredient2);
     if (req.body.ingredient3) searchedIngredients.push(req.body.ingredient3);
 
-    RecipeModel.find({"extendedIngredients.name": {$all: searchedIngredients}})
+    RecipeModel.find({"extendedIngredients.name": {$all: searchedIngredients}}).sort("title")
     .then(recipes=> 
     res.render("recipes/recipes-home", {recipes}))
     .catch(next)
