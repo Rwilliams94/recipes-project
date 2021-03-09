@@ -4,11 +4,11 @@
     <p class="form-subtitle">The home of food, friends and fun</p>
   </header>
 
-  {{#if msg}}
-  <p class="message {{msg.status}}">{{msg.text}}</p>
+  {{#if error}}
+  <p class="error">{{error}}</p>
   {{/if}}
 
- {{>flash_message}}
+ {{>flashMessage}}
 
   <form method="post" action="/auth/signup" id="form_user">
     <div class="form-input">
