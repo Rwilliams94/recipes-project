@@ -20,10 +20,11 @@ async function handleRead(evt) {
     array.forEach(recipe => {
         console.log(recipe.title)
         searchList.innerHTML += `
-        <li>${recipe.title}</li>
+         <li><a href="/recipes/${recipe._id}">${recipe.title}</a></li>
         `  
          
     })
+    
 
     } catch(apiError) {
     console.log(apiError)
