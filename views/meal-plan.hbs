@@ -1,0 +1,20 @@
+
+
+<h2>who have you got coming to dinner?</h2>
+
+<div id="guest-box">
+    {{#each guests}}
+        <button class="btn {{this._id}}" ><h2>{{this.name}}</h2></button>
+    {{/each}}
+</div>
+
+{{!-- 
+<button id="gluten-btn" class="btn">Gluten Free</button>
+<button id="dairy-btn" class="btn">Dairy Free</button>
+<button id="vegan-btn" class="btn">Vegan</button>
+<button id="vegetarian-btn" class="btn">Vegetarian</button>
+
+
+<div id="filter-bar-box">
+    <ul id="filter-results"></ul>
+</div> --}}

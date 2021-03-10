@@ -1,9 +1,28 @@
-<h1>User</h1>
+<h1>Your Profile</h1>
+
+<section id="user-profile">
+    <img src={{img}} alt="profile-picture">
+    <h2>{{userName}}</h2>
+    <p>{{diet}}</p>
+    <p>{{favRecip}}</p>
+    <a href="/users/profileUpdate/{{id}}" class="edit-btn">edit</a><br>
+</section>
+
+<section id="guest">
+    <h3>Your Guest list</h3>
+    {{#each guests}}
+        <div class="guests">
+            <h4>{{this.name}}</h4>
+            {{#each this.dietaryRequirements}}
+                <p>diet : {{this}}</p>
+            {{/each}}
+            <a href="/users/guestUpdate/{{this.id}}" class="edit-btn">edit</a><br>
+            <a href="/users/delete/{{this.id}}" class="delete-btn">x</a>
+        </div>
+        <br>
+    {{/each}}
+</section>
 
 <div>
-    {{!-- <p>{{guests}}</p> --}}
-</div>
-
-<div>
-   <a href="/users/guest">add a guest</a>
+   <a href="/users/guest">+</a>
 </div>
