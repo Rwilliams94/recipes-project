@@ -208,6 +208,44 @@ body {
 
 }
 
+/* Meal plan page */
+
+#guest-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diet-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    background: white;
+    border: 2px black solid;
+    padding: 5px;
+    height: 50px;
+    width: 140px;
+    margin: 20px;
+}
+
+.diet-btn.clicked {
+    background: gray;
+}
+
+.btn ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.btn h2 {
+    padding: 0;
+    margin: 0;
+}
+
 /* sign in/ up*/
 
 .form-container.signin {
