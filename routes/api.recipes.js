@@ -40,7 +40,8 @@ router.get("/test", async (req, res, next) => {
         try {
             console.log(req.query.vegan)
             const searchRes = await RecipeModel.find(test)
-            res.json(searchRes)        
+            res.json(searchRes)       
+            // searchRes.forEach(recipe => console.log(recipe.title)) 
             
         } catch (err) {
             console.log(err)
@@ -48,7 +49,6 @@ router.get("/test", async (req, res, next) => {
 
     }
 })
-
 
 
 module.exports = router;

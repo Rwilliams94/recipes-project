@@ -13,6 +13,15 @@
 <button>OK</button>
 </form>
 
+<button id="gluten-btn" class="btn">Gluten Free</button>
+<button id="dairy-btn" class="btn">Dairy Free</button>
+<button id="vegan-btn" class="btn">Vegan</button>
+<button id="vegetarian-btn" class="btn">Vegetarian</button>
+
+
+<div id="filter-bar-box">
+    <ul id="filter-results"></ul>
+</div>
 
 <h2>Click a recipe's name for details</h2>
 <ul>
@@ -20,3 +29,4 @@
 <li><a href="/recipes/{{this.id}}">{{this.title}}</a></li>
 {{/each}}
 </ul>
+

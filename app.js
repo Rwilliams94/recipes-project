@@ -72,11 +72,13 @@ const usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
 const recipesRouter = require("./routes/recipes");
 const apiSearchRouter = require("./routes/api.recipes")
+const mealPlanRouter = require("./routes/mealplan");
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/auth", authRouter);
 app.use("/recipes", recipesRouter);
+app.use('/mealplan', mealPlanRouter)
 app.use('/api/recipes', apiSearchRouter);
 
 // below, site_url is used in partials/shop_head.hbs to perform ajax request (var instead of hardcoded)
