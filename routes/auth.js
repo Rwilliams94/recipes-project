@@ -31,6 +31,7 @@ router.get("/signout", (req, res, next) => {
 router.post("/signin", async (req, res, next) => {
   const { email, password } = req.body;
   const foundUser = await UserModel.findOne({ email: email });
+  
 
   if (!foundUser) {
     req.flash("error", "You have entered invalid credentials");
@@ -48,6 +49,7 @@ router.post("/signin", async (req, res, next) => {
 
       req.session.currentUser = userObject; // Stores the user in the session (data server side + a cookie is sent client side)
       req.flash("success", "Successfully logged in...");
+      console.log(req.session.currentUser)
       // res.locals.currentUser = req.session.currentUser;
       // res.locals.isLoggedIn = true;
       res.redirect("/");

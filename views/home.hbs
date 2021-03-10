@@ -3,6 +3,15 @@
 {{#if foodJoke}}
 <p id="food-joke"><b>Random joke :) </b>{{foodJoke}}</p>
 {{/if}}
+<p>Search for recipes below, or use the "what's in your fridge tool over on the recipes page</p>
+<div id="search-bar-box">
+    <input id="search_input" type="text" class="input">
+    <ul id="search_results">
+        {{#each searchRes}}
+        <li>{{this.title}}</li>
+        {{/each}}
+    </ul>
+</div>
 
 <div id="recipe-roller">
     {{#each randomRecipes}}
