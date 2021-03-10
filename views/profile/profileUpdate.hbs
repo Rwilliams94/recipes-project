@@ -1,0 +1,20 @@
+<h2>Edit Profile</h2>
+
+<form action="/users/profileUpdate/{{user.id}}" method="post">
+   
+      <label for="user-name" class="label-name label">edit name</label>
+      <input id="user-name" type="text" class="input-text input" placeholder="name"
+        value="{{user.name}}" name="name">
+   <br><br>
+      <select name="dietaryRequirements" multiple>
+        <option value="none">none</option>
+        <option value="vegan">vegan</option>
+        <option value="vegetarian">vegetarian</option>
+        <option value="glutenFree">glutenFree</option>
+        <option value="diaryFree">diaryFree</option>
+      </select>
+      <label for="profile-img" class="profile-img">Image</label>
+    <input id="profile-img" type="file" name="image" >
+    <br><br>
+    <button>confirm</button>
+</form>

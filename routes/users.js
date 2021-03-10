@@ -1,45 +1,88 @@
 var express = require("express");
 var router = express.Router();
 const GuestModel = require("./../models/guest.model");
+const UserModel = require("./../models/User.model");
+const uploader = require("./../config/cloudinary");
 
+<<<<<<< HEAD
+
+//-------------------Profile--------------------
+=======
 //-------------Users-------------
 
 router.get('/', (req, res, next) => {res.render('users')})
+>>>>>>> 6781f7c9b956bbd4ce5b71945906e02f33ead240
 
+router.get("/", async (req, res, next) => {
+ try{
+    const user = await UserModel.findById(req.session.currentUser._id).populate("guests");
+    
+    res.render("users", {guests: user.guests, userName: user.userName, diet: user.dietaryRequirements, favRecip : user.favouriteRecipes, img : user.profileImage, id : user._id});
+  }
+  catch(error) {
+    next(error);
+  }
+});
 
-//-------------------GUESTS--------------------
-
-// Guests list
-router.get("/", (req, res, next) => {
-  GuestModel.find()
-  .then(guests => {
-    res.render("users", {guests});
+//any guest added goes to user.guests
+router.post("/guestUpdate/:id", (req, res, next) => {
+  UserModel.findByIdAndUpdate(req.params.id, req.body, {new:true})
+  .then(() => {
+    res.redirect("/users");
   })
-  .catch((error) => {
+  .catch((error)=> {
     next(error);
   });
 });
 
 
+// updating profile infos
+
+router.get("/profileUpdate/:id", (req, res, next) => {
+  UserModel.findById(req.params.id)
+  .then((user) => {
+    res.render("profile/profileUpdate", {user} );
+    
+  })
+  .catch((dbError) => {
+    next(dbError);
+  });
+});
+
+    
+router.post("/profileUpdate/:id", (req, res, next) => {
+  UserModel.findByIdAndUpdate(req.params.id, req.body, {new:true})
+  .then(() => {
+    res.redirect("/users");
+  })
+  .catch((error)=> {
+    next(error);
+  });
+});
+
+
+//---------------------GUESTS----------------------
+
+
 // ----------------Create new guest------------------
+
 router.get("/guest", (req, res) => {
   res.render("guests/guestAdd");
 });
 
-router.post("/guestAdd", (req, res, next) => {
+// create and update guest depending on the user
+router.post("/guestAdd", async (req, res, next) => {
   const { name, dietaryRequirements } = req.body;
-  GuestModel.create(req.body)
-  .then(guest => {
-    console.log(guest);
-    res.redirect("/users");
-  })
-  .catch((error) => {
-    next(error);
-  });
+  const guest = await GuestModel.create(req.body);
+  let guestId = guest._id;
+ const user = await UserModel.findByIdAndUpdate(req.session.currentUser._id, {$push : {guests: guest._id}}, {"new": true});
+ res.redirect("/users");
+console.log(user);  
 });
 
 
 // ---------------Update guest-------------------
+
 router.get("/guestUpdate/:id", (req, res, next) => {
   GuestModel.findById(req.params.id)
   .then((guest) => {
@@ -62,6 +105,7 @@ router.post("/guestUpdate/:id", (req, res, next) => {
 });
 
 //----------------Delete guest---------------------
+
 router.get('/delete/:id', (req, res, next) => {
   GuestModel.findByIdAndDelete(req.params.id)
   .then(()=> {

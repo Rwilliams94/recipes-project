@@ -2,16 +2,17 @@
 
 <form action="/users/guestAdd" method="post">
    
-      <label for="guest-name" class="label-name label">Guest name</label>
-      <input id="guest-name" type="text" class="input-text input" placeholder="name"
+  <label for="guest-name" class="label-name label">Guest name</label>
+  <input id="guest-name" type="text" class="input-text input" placeholder="name"
         value="" name="name">
    <br><br>
-      <select name="dietaryRequirements" multiple>
-        <option value="vegan">vegan</option>
-        <option value="vegetarian">vegetarian</option>
-        <option value="glutenFree">glutenFree</option>
-        <option value="diaryFree">diaryFree</option>
-      </select>
+  <select name="dietaryRequirements" multiple>
+      <option value="none">none</option>
+      <option value="vegan">vegan</option>
+      <option value="vegetarian">vegetarian</option>
+      <option value="glutenFree">glutenFree</option>
+      <option value="diaryFree">diaryFree</option>
+  </select>
     <br><br>
-    <button>create</button>
+  <button>create</button>
 </form>
