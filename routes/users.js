@@ -4,8 +4,14 @@ const GuestModel = require("./../models/guest.model");
 const UserModel = require("./../models/User.model");
 const uploader = require("./../config/cloudinary");
 
+<<<<<<< HEAD
 
 //-------------------Profile--------------------
+=======
+//-------------Users-------------
+
+router.get('/', (req, res, next) => {res.render('users')})
+>>>>>>> 6781f7c9b956bbd4ce5b71945906e02f33ead240
 
 router.get("/", async (req, res, next) => {
  try{

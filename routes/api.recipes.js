@@ -25,5 +25,30 @@ router.get("/", async (req, res, next) => {
 })
 
 
+router.get("/test", async (req, res, next) => {
+
+    console.log(req.query)
+    
+    const test = {}
+    
+    if(req.query.gluten) test.glutenFree = true;
+    if(req.query.dairy) test.dairyFree = true;
+    if(req.query.vegan) test.vegan = true;
+    if(req.query.vegetarian) test.vegetarian = true;
+
+    if (req.query) {
+        try {
+            console.log(req.query.vegan)
+            const searchRes = await RecipeModel.find(test)
+            res.json(searchRes)        
+            
+        } catch (err) {
+            console.log(err)
+        }
+
+    }
+})
+
+
 
 module.exports = router;
