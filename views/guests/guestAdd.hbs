@@ -1,12 +1,12 @@
 <h1>create a new guest</h1>
 
-<form action="/users/guests/guestAdd" method="post">
+<form action="/users/guestAdd" method="post">
    
       <label for="guest-name" class="label-name label">Guest name</label>
       <input id="guest-name" type="text" class="input-text input" placeholder="name"
         value="" name="name">
    <br><br>
-      <select name="dietaryRequirements">
+      <select name="dietaryRequirements" multiple>
         <option value="vegan">vegan</option>
         <option value="vegetarian">vegetarian</option>
         <option value="glutenFree">glutenFree</option>

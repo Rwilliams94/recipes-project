@@ -1,2 +1,16 @@
 <h1>guests list</h1>
 
+
+<section>
+{{#each guest}}
+<div>
+<h2>{{this.name}}</h2>
+<p>{{this.dietaryRequirements}}</p>
+<a href="/users/guestUpdate/{{this.id}}">Update guest</a><br><br>
+<a href="/users/delete/{{this.id}}">Delete guest</a>
+
+
+</div>
+<br>
+{{/each}}
+</section>
