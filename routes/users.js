@@ -49,8 +49,7 @@ router.get("/profileUpdate/:id", (req, res, next) => {
     
 router.post("/profileUpdate/:id", (req, res, next) => {
   const { userName, dietaryRequirements, profileImage } = req.body;
-  console.log("++++++++++++++++++++++++++",req.body);
-  GuestModel.findByIdAndUpdate(req.params.id, {
+  UserModel.findByIdAndUpdate({_id:req.params.id}, {
     userName,
     dietaryRequirements,
     profileImage
@@ -98,8 +97,8 @@ router.get("/guestUpdate/:id", (req, res, next) => {
 
     
 router.post("/guestUpdate/:id", (req, res, next) => {
-  console.log("++++++++++++++++++++++++++",req.body);
-  GuestModel.findByIdAndUpdate(req.params.id, req.body, {new:true})
+  console.log("++++++++++++++++++++++++++");
+  GuestModel.findByIdAndUpdate({_id:req.params.id}, req.body, {new:true})
   .then(() => {
     res.redirect("/users");
   })
