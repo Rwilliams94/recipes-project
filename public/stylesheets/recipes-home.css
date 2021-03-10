@@ -1,0 +1,57 @@
+/* * {
+    border: 1px solid black;
+} */
+
+#fridge-wrapper, #results-wrapper, #results-wrapper article {
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+#fridge-wrapper, #results-wrapper {
+    width: 80%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#fridge-wrapper img{
+    height: 250px;
+}
+
+#ingredient-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#dish-type-box {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+#recipes-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+}
+
+#recipes-wrapper article {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    padding: 10px 0;
+}
+
+#recipes-wrapper img {
+    max-height: 180px;
+}
+
+#recipes-wrapper a {
+    padding-left: 15px;
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+}
