@@ -1,0 +1,9 @@
+
+
+<h2>who have you got coming to dinner?</h2>
+
+<div id="guest-box">
+    {{#each guests}}
+        <button class="btn {{this._id}}" ><h2>{{this.name}}</h2></button>
+    {{/each}}
+</div>

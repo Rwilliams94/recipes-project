@@ -2,7 +2,11 @@
 const inputSearch = document.getElementById("search_input");
 const userList = document.getElementById("users-list");
 const searchList = document.getElementById("search_results");
+
+
+
 // const axios = require("axios");
+
 
 async function readUsers(string) {
     let query = string ? `?name=${string}` : "";
@@ -18,19 +22,14 @@ async function handleRead(evt) {
     searchList.innerHTML = ""
 
     array.forEach(recipe => {
-        console.log(recipe.title)
         searchList.innerHTML += `
          <li><a href="/recipes/${recipe._id}">${recipe.title}</a></li>
-        `  
-         
+        `      
     })
-    
-
     } catch(apiError) {
     console.log(apiError)
     }    
-    
 }
 
-inputSearch.onkeyup = handleRead
+inputSearch.onkeyup = handleRead;
 

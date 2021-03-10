@@ -2,12 +2,9 @@ var express = require("express");
 var router = express.Router();
 const GuestModel = require("./../models/guest.model");
 
-<<<<<<< HEAD
 //-------------Users-------------
 
-=======
 router.get('/', (req, res, next) => {res.render('users')})
->>>>>>> 6aa93daecbcf80bb1d5b53c99680a3318ae30259
 
 
 //-------------------GUESTS--------------------
@@ -74,5 +71,6 @@ router.get('/delete/:id', (req, res, next) => {
     next(error);
   });
 });
+
 
 module.exports = router;
