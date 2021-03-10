@@ -6,8 +6,8 @@ const uploader = require("./../config/cloudinary");
 
 
 //-------------------Profile--------------------
+//--------------------Users--------------------
 
-//-------------Users-------------
 
 router.get("/", async (req, res, next) => {
  try{
@@ -98,9 +98,9 @@ router.get("/guestUpdate/:id", (req, res, next) => {
 
     
 router.post("/guestUpdate/:id", (req, res, next) => {
+  console.log("++++++++++++++++++++++++++",req.body);
   GuestModel.findByIdAndUpdate(req.params.id, req.body, {new:true})
   .then(() => {
-    console.log();
     res.redirect("/users");
   })
   .catch((error)=> {

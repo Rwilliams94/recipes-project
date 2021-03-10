@@ -1,22 +1,38 @@
-<script type="module" src="/javascript/recipes-home.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<section id="fridge-wrapper">
+    <img src="/images/happy-fridge.png" alt="happy fridge">
 
+    <div id="ingredient-search">
 
+        <h1>What's in your fridge?</h1>
+        <form method="post" action="/recipes">
 
-<h1>Search by Ingredients :</h1>
-<h2>What's in your fridge?</h2>
-<form method="post" action="/recipes">
+            <input type="text" placeholder="ingredient 1" name="ingredient1">
+            <input type="text" placeholder="ingredient 2" name="ingredient2">
+            <input type="text" placeholder="ingredient 3" name="ingredient3">
+            <button>OK</button>
+        </form>
 
-<input type="text" placeholder="ingredient 1" name="ingredient1">
-<input type="text" placeholder="ingredient 2" name="ingredient2">
-<input type="text" placeholder="ingredient 3" name="ingredient3">
-<button>OK</button>
-</form>
+        <p>Number of recipes available with your fridge search: {{recipes.length}}</p>
+    </div>
+</section>
 
+<section id="results-wrapper">
 
-<h2>Click a recipe's name for details</h2>
-<ul>
-{{#each recipes}}
-<li><a href="/recipes/{{this.id}}">{{this.title}}</a></li>
-{{/each}}
-</ul>
+    <div id="dish-type-box">
+        <h3>Filter by dish type:</h3>
+    </div>
+
+    <div id="recipes-wrapper">
+
+        <h2>Click on a recipe for details</h2>
+
+            {{#each recipes}}
+            <article dish="{{this.dishTypes}}">
+                <a href="/recipes/{{this.id}}">
+                <img src="{{this.image}}" alt="recipe image"></a>
+                <a href="/recipes/{{this.id}}">{{this.title}}</a>
+            </article>
+            {{/each}}
+
+    </div>
+</section>

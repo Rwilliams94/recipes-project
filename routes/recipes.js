@@ -6,7 +6,7 @@ const RecipeModel = require("./../models/Recipe.model");
 router.get("/", (req, res, next) => {
   RecipeModel.find()
     .sort("title")
-    .then((recipes) => res.render("recipes/recipes-home", { recipes }))
+    .then((recipes) => res.render("recipes/recipes-home", { recipes, js:"recipes-home", css:"recipes-home" }))
     .catch(next);
 });
 
@@ -35,7 +35,7 @@ router.post("/", (req, res, next) => {
     ],
   })
     .sort("title")
-    .then((recipes) => res.render("recipes/recipes-home", { recipes }))
+    .then((recipes) => res.render("recipes/recipes-home", { recipes, js:"recipes-home", css:"recipes-home" }))
     .catch(next);
 });
 
