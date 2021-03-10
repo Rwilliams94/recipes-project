@@ -6,9 +6,6 @@ const uploader = require("./../config/cloudinary");
 
 
 //-------------------Profile--------------------
-//-------------Users-------------
-
-router.get('/', (req, res, next) => {res.render('users')})
 
 router.get("/", async (req, res, next) => {
  try{
