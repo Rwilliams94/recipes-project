@@ -52,4 +52,13 @@ router.get("/:id", (req, res, next) => {
     .catch(next);
 });
 
+
+  router.get("/delete/:id", (req, res, next) => {
+    RecipeModel.findByIdAndDelete(req.params.id)
+    .then(res.redirect("/recipes"))
+    .catch(next);
+})
+
+
+
 module.exports = router;

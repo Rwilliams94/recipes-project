@@ -56,8 +56,8 @@ body {
 
 #page-links {
     display: flex;
-    width: 30vw;
-    padding: 0px 20px;
+    width: 400px;
+    padding: 0px 35px;
     justify-content: space-between;
     align-items: center;
 }
@@ -149,7 +149,8 @@ body {
     border: black 1px solid;
     width: 436px;
     max-height: 500px; 
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     list-style: none;
     padding: 0px 10px;
     z-index: 2;
@@ -208,12 +209,130 @@ body {
 
 }
 
-/* Meal plan page */
+/* Recipe pages */
 
-#guest-box {
+#recipe-card {
+    width: 900px;
+    margin-top: 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: whitesmoke
+
+}
+
+.main-box {
+    height: 350px;
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+
+.image {
+    width: 450px;
+}
+.recipe-pic {
+    width: 400px;
+    margin: 25px;
+}
+
+.main-box h1 {
+    margin: 20px 0 8px 0;
+    width: 400px;
+}
+
+.main-box h3 {
+    width: 375px;
+    margin: 5px 0 15px 0;
+    padding: 10px 0;
+    border-top: black 2px solid;
+    border-bottom: black 2px solid;;
+}
+
+.main-box .dishes {
+    width: 375px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-weight: 700;
+    border-top: black 2px solid;
+    border-bottom: black 2px solid;;
+}
+
+.main-box #diets {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+
+.main-box #diets :nth-child(even) {
+    background: turquoise
+}
+
+.main-box #diets :nth-child(odd) {
+    background: lightblue
+}
+
+
+.main-box #diets li {
+    margin: 3px 0;
+    padding: 5px;
+    text-align: center;
+
+}
+
+.lower-box {
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0px;
+}
+
+.ingredients {
+    width: 300px;
+}
+
+.ingredients p {
+    margin: 10px 0;
+}
+
+.instructions {
+    width: 500px;
+    
+}
+
+.instructions > b,p,a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.instructions p {
+    line-height: 1.6;
+}
+
+
+
+
+/* Meal plan page */
+
+.check {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: red;
 }
 
 .diet-btn {

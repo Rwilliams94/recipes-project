@@ -6,7 +6,7 @@
 
 <h2>who have you got coming to dinner?</h2>
 
-<div id="guest-box">
+<div id="guest-buttons">
     {{#each user.guests}}
         <div value="{{#each this.dietaryRequirements}}{{this}} {{/each}}" class="diet-btn" ><h2>{{this.name}}</h2></div>
     {{/each}}
