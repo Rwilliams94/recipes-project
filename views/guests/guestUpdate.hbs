@@ -1,7 +1,8 @@
 <h1>Update guest</h1>
 
-<form action="/users/guestUpdate/{{guest.id}}" method="post">
-   
+
+
+<form "updating-form" action="/users/guestUpdate/{{guest.id}}" method="post"> 
       <label for="guest-name" class="label-name label">Guest name</label>
       <input id="guest-name" type="text" class="input-text input" placeholder="name"
         value="{{guest.name}}" name="name">
@@ -14,5 +15,5 @@
         <option value="diaryFree">diaryFree</option>
       </select>
     <br><br>
-    <button>confirm</button>
+    <button class="edit-btn">confirm</button>
 </form>

@@ -1,6 +1,6 @@
 <h2>Edit Profile</h2>
 
-<form action="/users/profileUpdate/{{user.id}}" method="post">
+<form class="updating-form" action="/users/profileUpdate/{{user.id}}" method="post">
    
       <label for="user-name" class="label-name label" name="userName">edit name</label>
       <input id="user-name" type="text" class="input-text input" placeholder="name"
@@ -16,5 +16,5 @@
       <label for="profile-img" class="profile-img">Image</label>
     <input id="profile-img" type="file" name="image" value="{{user.profileImage}}" >
     <br><br>
-    <button>confirm</button>
+    <button class="edit-btn" >confirm</button>
 </form>
