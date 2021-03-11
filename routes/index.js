@@ -13,6 +13,7 @@ function getFoodJoke(jokeRequest) {
 // router.get("/", async function (req, res, next) {res.render("home")})
 
   // render homepage with a random food joke (from API) and 3 random recipes (from local DB)
+// render homepage with a random food joke (from API) and 3 random recipes (from local DB)
 router.get("/", async function (req, res, next) {
   //randomRecipes is an array of 3 objects (recipe documents)
   // console.log(req.session.currentUser._id)

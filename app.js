@@ -34,22 +34,38 @@ app.use(express.urlencoded({ extended: false }));
 
 //SESSION SETUP
 
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: true,
+//     saveUninitialized: false,
+//     cookie: {
+//       //sameSite: "none",
+//       httpOnly: true,
+//       maxAge: 25 * 60 * 60 * 1000
+//       // maxAge: 600000, // 60 * 1000 ms === 1 min
+//     },
+//     store: MongoStore.create({
+//       mongoUrl: process.env.MONGO_URI,
+//       ttl: 60 * 60 * 24,
+//     }),
+//   })
+// );
+
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+    }),
+    saveUninitialized : true,
+    save: true,
     cookie: {
-      //sameSite: "none",
-      httpOnly: true,
-      maxAge: 600000, // 60 * 1000 ms === 1 min
+      maxAge: 25 * 60 * 60 * 1000
     },
-    // store: MongoStore.create({
-    //   mongoUrl: process.env.MONGO_URI,
-    //   ttl: 60 * 60 * 24,
-    // }),
+    secret: process.env.SESSION_SECRET,
   })
 );
+
 // flash messages
 
 app.use(flash());

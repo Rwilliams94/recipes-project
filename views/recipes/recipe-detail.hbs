@@ -33,7 +33,7 @@
             <div class="ingredients-list">
             {{#each recipe.extendedIngredients}}
                 
-                    <p>{{this.amount}} {{this.unit}} {{this.name}}</p>    
+                    <p> <span id="ingredient-amount">{{this.amount}}</span> {{this.unit}} {{this.name}}</p>    
                 
             {{/each}}
             </div>
