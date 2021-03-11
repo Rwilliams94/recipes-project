@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
     const user = await UserModel.findById(req.session.currentUser._id).populate("guests")
     .populate("favouriteRecipes");
     console.log(user.favouriteRecipes,"+++++++++++++++++++")
-    res.render("users", {css:"profile", guests: user.guests, userName: user.userName, diet: user.dietaryRequirements, favRecip : user.favouriteRecipes, img : user.profileImage, id : user._id});
+    res.render("users", {guests: user.guests, userName: user.userName, diet: user.dietaryRequirements, favRecip : user.favouriteRecipes, img : user.profileImage, id : user._id});
   }
   catch(error) {
     next(error);
