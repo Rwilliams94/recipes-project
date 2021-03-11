@@ -3,15 +3,15 @@ var router = express.Router();
 const GuestModel = require("./../models/guest.model");
 const UserModel = require("./../models/User.model");
 const uploader = require("./../config/cloudinary");
+const RecipeModel = require("./../models/Recipe.model");
 
 
 //-------------------Profile--------------------
 //--------------------Users--------------------
 
-
 router.get("/", async (req, res, next) => {
  try{
-    const user = await UserModel.findById(req.session.currentUser._id).populate("guests");
+    const user = await UserModel.findById(req.session.currentUser._id).populate("guests recipe");
     
     res.render("users", {guests: user.guests, userName: user.userName, diet: user.dietaryRequirements, favRecip : user.favouriteRecipes, img : user.profileImage, id : user._id});
   }
