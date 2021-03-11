@@ -44,10 +44,10 @@ app.use(
       httpOnly: true,
       maxAge: 600000, // 60 * 1000 ms === 1 min
     },
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGO_URI,
-      ttl: 60 * 60 * 24,
-    }),
+    // store: MongoStore.create({
+    //   mongoUrl: process.env.MONGO_URI,
+    //   ttl: 60 * 60 * 24,
+    // }),
   })
 );
 // flash messages
