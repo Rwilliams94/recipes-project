@@ -6,6 +6,8 @@ const uploader = require("./../config/cloudinary");
 
 
 //-------------------Profile--------------------
+//--------------------Users--------------------
+
 
 router.get("/", async (req, res, next) => {
  try{
@@ -17,6 +19,7 @@ router.get("/", async (req, res, next) => {
     next(error);
   }
 });
+
 
 //any guest added goes to user.guests
 router.post("/guestUpdate/:id", (req, res, next) => {
@@ -45,7 +48,12 @@ router.get("/profileUpdate/:id", (req, res, next) => {
 
     
 router.post("/profileUpdate/:id", (req, res, next) => {
-  UserModel.findByIdAndUpdate(req.params.id, req.body, {new:true})
+  const { userName, dietaryRequirements, profileImage } = req.body;
+  UserModel.findByIdAndUpdate({_id:req.params.id}, {
+    userName,
+    dietaryRequirements,
+    profileImage
+  })
   .then(() => {
     res.redirect("/users");
   })
@@ -106,7 +114,8 @@ router.get("/guestUpdate/:id", (req, res, next) => {
 
     
 router.post("/guestUpdate/:id", (req, res, next) => {
-  GuestModel.findByIdAndUpdate(req.params.id, req.body, {new:true})
+  console.log("++++++++++++++++++++++++++",req.params.id);
+  GuestModel.findByIdAndUpdate({_id:req.params.id}, req.body, {new:true})
   .then(() => {
     res.redirect("/users");
   })

@@ -2,9 +2,9 @@
 
 <form action="/users/profileUpdate/{{user.id}}" method="post">
    
-      <label for="user-name" class="label-name label">edit name</label>
+      <label for="user-name" class="label-name label" name="userName">edit name</label>
       <input id="user-name" type="text" class="input-text input" placeholder="name"
-        value="{{user.name}}" name="name">
+        value="{{user.userName}}" name="userName">
    <br><br>
       <select name="dietaryRequirements" multiple>
         <option value="none">none</option>
@@ -14,7 +14,7 @@
         <option value="diaryFree">diaryFree</option>
       </select>
       <label for="profile-img" class="profile-img">Image</label>
-    <input id="profile-img" type="file" name="image" >
+    <input id="profile-img" type="file" name="image" value="{{user.profileImage}}" >
     <br><br>
     <button>confirm</button>
 </form>
