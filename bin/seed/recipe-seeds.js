@@ -12,7 +12,7 @@ API_KEY1= "7988f333580e414fb99aa98ee251dfee"
 API_KEY2= "a1854d8e765d4cd5ae6b73760b737be2"
 // API_KEY3= "2431adb3432a439fb99d8e84f8a53a9b"
 
-let id = 46200;
+let id = 131421;
 
 function getRecipes(URL) {
   return axios.get(URL);
@@ -38,7 +38,7 @@ async function insertRecipes() {
 
 let intervalId = setInterval(() => {
   insertRecipes()
-  id+=100
+  id+=75
 }, 250);
 
 setTimeout(() => {
