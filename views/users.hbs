@@ -1,16 +1,22 @@
+<link rel='stylesheet' href='/stylesheets/{{css}}.css'/>
+
 <h1>Your Profile</h1>
 
 <section id="user-profile">
     <img src={{img}} alt="profile-picture">
     <h2>{{userName}}</h2>
     <p>{{diet}}</p>
-
-    <div{{favRecip.title}}></div>
+    <div>
+        {{#each favRecip}}
+        <div>
+            {{this.title}} 
+            <a href="/users/favRecipeDelete/{{this.id}}" class="delete-btn">x</a>
+        </div>
+        {{/each}}
+    </div>
 
     <a href="/users/profileUpdate/{{id}}" class="edit-btn">edit</a><br>
 </section>
-
-
 
 <section id="guest">
     <h3>Your Guest list</h3>
@@ -24,12 +30,6 @@
             <a href="/users/delete/{{this.id}}" class="delete-btn">x</a>
         </div>
         <br>
-    {{/each}}
-</section> .
-
-<section>
-    {{#each favRecip}}
-    <div>{{this.title}}</div>
     {{/each}}
 </section>
 
