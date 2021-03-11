@@ -13,7 +13,7 @@ const cookieParser = require("cookie-parser");
 const hbs = require("hbs");
 const mongoose = require("mongoose");
 const session = require("express-session");
-const MongoStore = require("connect-mongo").default;
+const MongoStore = require("connect-mongo");
 
 const dev_mode = false;
 
@@ -50,6 +50,7 @@ app.use(
     // }),
   })
 );
+
 // flash messages
 
 app.use(flash());
