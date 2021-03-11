@@ -34,7 +34,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //SESSION SETUP
 
-app.use(
+// app.use(
 //   session({
 //     secret: process.env.SESSION_SECRET,
 //     resave: true,
