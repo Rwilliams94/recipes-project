@@ -26,7 +26,7 @@ router.get("/:id", async (req, res, next) => {
    let favCheck
    if(res.locals.isLoggedIn) {
     const user = await UserModel.findById(req.session.currentUser);
-    const favCheck = user.favouriteRecipes.includes(req.params.id);
+    favCheck = user.favouriteRecipes.includes(req.params.id);
    }
       res.render("recipes/recipe-detail", {
         recipe,
