@@ -8,10 +8,25 @@
 
 <div id="guest-buttons">
     {{#each user.guests}}
-        <div value="{{#each this.dietaryRequirements}}{{this}} {{/each}}" class="diet-btn" ><h2>{{this.name}}</h2></div>
+    <div value="{{#each this.dietaryRequirements}}{{this}} {{/each}}" class="diet-btn">
+        <h2>{{this.name}}</h2>
+    </div>
     {{/each}}
 </div>
 
+<section id="fridge-wrapper">
+    <img src="/images/happy-fridge.png" alt="happy fridge">
+
+    <div id="ingredient-search">
+
+        <h1>What's in your fridge?</h1>
+
+        <input id="ingredient1" type="text" placeholder="ingredient 1" name="ingredient1">
+        <input id="ingredient2" type="text" placeholder="ingredient 2" name="ingredient2">
+        <input id="ingredient3" type="text" placeholder="ingredient 3" name="ingredient3">
+
+    </div>
+</section>
 
 <div id="lets-cook" class="btn">Let's Cook!</div>
 

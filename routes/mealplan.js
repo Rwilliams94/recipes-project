@@ -12,7 +12,7 @@ router.get("/", async (req, res, next) => {
   
     try{
        const user = await UserModel.findById(req.session.currentUser._id).populate("guests");
-       res.render("meal-plan", {user});
+       res.render("meal-plan", {user, css: "meal-planner"});
      }
      catch(error) {
        next(error);
