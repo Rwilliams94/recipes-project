@@ -44,10 +44,10 @@ app.use(
       httpOnly: true,
       maxAge: 600000, // 60 * 1000 ms === 1 min
     },
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGO_URI,
-      ttl: 60 * 60 * 24,
-    }),
+    // store: MongoStore.create({
+    //   mongoUrl: process.env.MONGO_URI,
+    //   ttl: 60 * 60 * 24,
+    // }),
   })
 );
 // flash messages
@@ -97,7 +97,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  console.log("custom error : ",err);
+  // console.log("custom error : ",err);
   res.render("error");
 });
 

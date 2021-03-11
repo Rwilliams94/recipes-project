@@ -291,6 +291,21 @@ body {
 
 }
 
+.ingredients .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: forestgreen;
+    color: white;
+    width: 250px;
+    height: 35px;
+    margin: 25px 0;
+}
+
+.ingredients .btn a {
+    color: white;
+}
+
 .lower-box {
     width: 800px;
     display: flex;
@@ -310,6 +325,13 @@ body {
 .instructions {
     width: 500px;
     
+}
+
+.ingredients-list {
+    width: 250px;
+    padding: 20px 0;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 .instructions > b,p,a {

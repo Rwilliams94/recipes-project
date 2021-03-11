@@ -1,7 +1,9 @@
 <div id="recipe-card">
+    
     <div class="main-box">
         <div class="image">
             <img class="recipe-pic" src="{{recipe.image}}" alt="recipe photo">  
+           
         </div> 
         <div class="title">
             <h1>{{recipe.title}}</h1>
@@ -22,16 +24,26 @@
                 <li>{{this}}</li>
                 {{/each}}
             </ul>
+             
         </div> 
     </div>
     <div class="lower-box">
         <div class="ingredients">
             <h2>Ingredients</h2>
+            <div class="ingredients-list">
             {{#each recipe.extendedIngredients}}
                 
                     <p>{{this.amount}} {{this.unit}} {{this.name}}</p>    
                 
             {{/each}}
+            </div>
+            {{#if isLoggedIn}}
+            {{#if favCheck}}
+            <div class="btn"><a href="/users/favRecipe/{{recipe._id}}">Remove from favourites</a></div>
+            {{else}}
+            <div class="btn"><a href="/users/favRecipe/{{recipe._id}}">Add to favourites</a></div>
+            {{/if}}
+            {{/if}}
         </div>
         <div class="instructions">
             {{#if recipe.instructions}}
@@ -46,4 +58,5 @@
         </div>
         
     </div>
+   
 </div>

@@ -11,8 +11,9 @@ const RecipeModel = require("./../models/Recipe.model");
 
 router.get("/", async (req, res, next) => {
  try{
-    const user = await UserModel.findById(req.session.currentUser._id).populate("guests recipe");
-    
+    const user = await UserModel.findById(req.session.currentUser._id).populate("guests")
+    .populate("favouriteRecipes");
+    console.log(user.favouriteRecipes,"+++++++++++++++++++")
     res.render("users", {guests: user.guests, userName: user.userName, diet: user.dietaryRequirements, favRecip : user.favouriteRecipes, img : user.profileImage, id : user._id});
   }
   catch(error) {
@@ -72,11 +73,21 @@ router.get("/favRecipe/:id", async (req, res, next) => {
   
   const recipeId = req.params.id; 
   console.log(recipeId)
-  console.log(req.session.currentUser._id,);
+  console.log(req.session.currentUser._id);
   const user = await UserModel.findByIdAndUpdate(req.session.currentUser._id, {$push : {favouriteRecipes: recipeId}}, {"new": true});
   res.redirect(`/recipes/${recipeId}`);
   console.log(user);  
-})  
+});
+
+router.get("/favRecipeDelete/:id", async (req, res, next) => {
+  
+  const recipeId = req.params.id; 
+  console.log(recipeId);
+  console.log(req.session.currentUser._id);
+  const user = await UserModel.findByIdAndUpdate(req.session.currentUser._id, {$pull : {favouriteRecipes: recipeId}}, {"new": true});
+  res.redirect('/users');
+  console.log(user);  
+});
 
 
 // favouriteRecipes: [{type: Schema.Types.ObjectId, ref: "recipe"}
