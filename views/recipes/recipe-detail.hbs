@@ -1,47 +1,49 @@
-<h1>{{recipe.title}}</h1>
+<div id="recipe-card">
+    <div class="main-box">
+        <div class="image">
+            <img class="recipe-pic" src="{{recipe.image}}" alt="recipe photo">  
+        </div> 
+        <div class="title">
+            <h1>{{recipe.title}}</h1>
 
-<h3>Preparation: {{recipe.readyInMinutes}} minutes</h3>
+            <h3>{{recipe.readyInMinutes}} minutes</h3>
 
-<div id="dish-type"></div>
-<h4>Type of dish:</h4>
-<ul>
-    {{#each recipe.dishTypes}}
-    <li>{{this}}</li>
-    {{/each}}
-</ul>
 
-{{!-- <h4>Suitable for: {{recipe.diets}} diets</h4> --}}
-<ul id="diets">
-    {{#if recipe.vegetarian}} <li>vegetarian</li> {{/if}}
-    {{#if recipe.glutenFree}} <li>gluten free</li>{{/if}}
-    {{#if recipe.vegan}} <li>vegan</li> {{/if}}
-    {{#if recipe.dairyFree}} <li>dairy free</li> {{/if}}
-</ul>
+            {{!-- <h4>Suitable for: {{recipe.diets}} diets</h4> --}}
+            <ul id="diets">
+                {{#if recipe.vegetarian}} <li>vegetarian</li> {{/if}}
+                {{#if recipe.glutenFree}} <li>gluten free</li>{{/if}}
+                {{#if recipe.vegan}} <li>vegan</li> {{/if}}
+                {{#if recipe.dairyFree}} <li>dairy free</li> {{/if}}
+            </ul>
+            <div id="dish-type"></div>
+            <ul class="dishes">
+                {{#each recipe.dishTypes}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div> 
+    </div>
+    <div class="lower-box">
+        <div class="ingredients">
+            <h2>Ingredients</h2>
+            {{#each recipe.extendedIngredients}}
+                
+                    <p>{{this.amount}} {{this.unit}} {{this.name}}</p>    
+                
+            {{/each}}
+        </div>
+        <div class="instructions">
+            {{#if recipe.instructions}}
+            <h2>Instructions</h2>
+            <p>{{{recipe.instructions}}}</p>
+            {{else}}
+            <h2>Summary</h2>
+            <p>{{{recipe.summary}}}</p>
+            {{/if}}
 
-<table>
-    <thead>
-        <tr>
-            <th>Ingredient</th>
-            <th>Amount</th>
-            <th>Unit</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each recipe.extendedIngredients}}
-        <tr>
-            <td>{{this.name}}</td>
-            <td id="ingredient-amount">{{this.amount}}</td>
-            <td>{{this.unit}}</td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
-<img src="{{recipe.image}}" alt="recipe photo">
-
-<h3>Summary:</h3>
-<p>{{{recipe.summary}}}</p>
-
-{{#if recipe.instructions}}
-<h3>Instructions:</h3>
-<p>{{{recipe.instructions}}}</p>
-{{/if}}
+            
+        </div>
+        
+    </div>
+</div>
