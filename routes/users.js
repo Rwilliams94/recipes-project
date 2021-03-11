@@ -63,6 +63,23 @@ router.post("/profileUpdate/:id", (req, res, next) => {
 });
 
 
+
+//---------------------RECIPES----------------------
+
+//------------ add favourite recipe ----------------
+
+router.get("/favRecipe/:id", async (req, res, next) => {
+  
+  const recipeId = req.params.id; 
+  console.log(recipeId)
+  console.log(req.session.currentUser._id,);
+  const user = await UserModel.findByIdAndUpdate(req.session.currentUser._id, {$push : {favouriteRecipes: recipeId}}, {"new": true});
+  res.redirect(`/recipes/${recipeId}`);
+  console.log(user);  
+})  
+
+
+// favouriteRecipes: [{type: Schema.Types.ObjectId, ref: "recipe"}
 //---------------------GUESTS----------------------
 
 
