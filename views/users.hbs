@@ -6,7 +6,26 @@
     <img src={{img}} alt="profile-picture">
     <h2>{{userName}}</h2>
     <p>{{diet}}</p>
-    <div>
+   
+
+    <a href="/users/profileUpdate/{{id}}" class="edit-btn">edit</a><br>
+</section>
+
+    <h3>Your Guest list</h3>
+<section id="guest">
+    {{#each guests}}
+        <div class="guest-box">
+            <h4>{{this.name}}</h4>
+            {{#each this.dietaryRequirements}}
+                <p>diet : {{this}}</p>
+            {{/each}}
+            <a href="/users/guestUpdate/{{this.id}}" class="edit-btn">edit</a><br>
+            <a href="/users/delete/{{this.id}}" class="delete-btn">x</a>
+        </div>
+    {{/each}}
+</section>
+
+ <div id="favRecipe-box" >
         {{#each favRecip}}
         <div>
             {{this.title}} 
@@ -15,23 +34,6 @@
         {{/each}}
     </div>
 
-    <a href="/users/profileUpdate/{{id}}" class="edit-btn">edit</a><br>
-</section>
-
-<section id="guest">
-    <h3>Your Guest list</h3>
-    {{#each guests}}
-        <div class="guests">
-            <h4>{{this.name}}</h4>
-            {{#each this.dietaryRequirements}}
-                <p>diet : {{this}}</p>
-            {{/each}}
-            <a href="/users/guestUpdate/{{this.id}}" class="edit-btn">edit</a><br>
-            <a href="/users/delete/{{this.id}}" class="delete-btn">x</a>
-        </div>
-        <br>
-    {{/each}}
-</section>
 
 <div>
    <a href="/users/guest">+</a>

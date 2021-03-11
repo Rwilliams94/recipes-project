@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 
+ 
+/* #62a5a1; */ 
 
 body {
     font-family: Roboto;
@@ -11,6 +13,12 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+}
+
+h4,
+h3,
+h5 {
+    font-family: "PT Serif",Georgia,Times,Times New Roman,serif;
 }
 
 .text {
@@ -31,13 +39,15 @@ body {
 /* Nav bar header */
 
 #nav-bar {
-    height: 50px;
+    height: 80px;
     width: 100vw;
     margin: 0;
     display: flex;
-    background: white;
+    background: whitesmoke;
     justify-content: space-between;
     border-bottom: 10px solid black;
+
+    
 }
 
 #nav-bar a {
@@ -65,6 +75,7 @@ body {
 #page-links a {
     text-decoration: none;
     color: black;
+    font-size: 1.5rem;
 }
 
 #sign-in {
@@ -101,6 +112,23 @@ body {
 }
 
 /* home page */
+
+#title-bar {
+    background-image: url(https://res.cloudinary.com/adgranmous/image/upload/v1615462299/itl.cat_food-wallpaper-hd_2906065_b0wfn3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    border-bottom: 2px black solid;
+    height: 450px;
+    width: 100vw;
+    max-width: 2000px;
+    justify-content: center;
+    align-items: center;
+}
+
 #filter-bar-box {
     position: relative;
     display: flex;
@@ -111,7 +139,6 @@ body {
     justify-content: center;
 
 }
-
 
 #filter-results {
     position: absolute;
@@ -131,23 +158,41 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 100vw;
     height: 100px;
     align-items: center;
     justify-content: center;
+    background: whitesmoke;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
 
 }
 
 #search_input {
-    width: 450px;
+    width: 650px;
+    height: 30px;
+    background: whitesmoke;
+    border-style: none;
+
+}
+
+/* #343a40;
+: #343a40;
+-light: #f8f9fa; */
+
+#search_input::placeholder {
+ color: black;
+ font-family: Roboto;
+ font-size: 1.3rem;
+ 
 }
 
 #search_results {
     position: absolute;
-    top: 45px;
+    top: 52px;
     background: white;
     border: black 1px solid;
-    width: 436px;
+    width: 636px;
     max-height: 500px; 
     overflow-y: scroll;
     overflow-x: hidden;

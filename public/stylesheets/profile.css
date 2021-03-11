@@ -1,0 +1,24 @@
+/* guests */
+
+#guest {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+};
+
+#guest .guest-box {
+    border: black solid;
+    width: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* recipes */
+
+#favRecipe-box {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+}

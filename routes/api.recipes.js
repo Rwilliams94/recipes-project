@@ -36,6 +36,8 @@ router.get("/test", async (req, res, next) => {
     if(req.query.vegan) test.vegan = true;
     if(req.query.vegetarian) test.vegetarian = true;
 
+  
+
     if (req.query) {
         try {
             console.log(req.query.vegan)

@@ -1,14 +1,16 @@
-
-<h2>Welcome!</h2>
+<div id="title-bar">
+<h1>Welcome to the home of food</h1>
+<h3>The place for food, friends, family and fun</h3>
 {{#if foodJoke}}
-<p id="food-joke"><b>Random joke :) </b>{{foodJoke}}</p>
+<p id="food-joke"><h4><i>{{foodJoke}}</i></h4></p>
 {{/if}}
-<h2>Search for recipes below, or use the "what's in your fridge?" tool over on the recipes page</h2>
+</div>
+<h3>Search for recipes below, or use the "what's in your fridge?" tool over on the recipes page</h3>
 <div id="search-bar-box">
-    <input id="search_input" type="text" class="input">
+    <input id="search_input" type="text" class="input" placeholder="Search for anything">
     <ul id="search_results"></ul>
 </div>
-<h2>Or what about trying one of these tasty treats?!</h2>
+<h3>Or what about trying one of these tasty treats?!</h3>
 <div id="recipe-roller">
     {{#each randomRecipes}}
     <a href="/recipes/{{this._id}}">

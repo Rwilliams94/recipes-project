@@ -13,8 +13,7 @@ router.get("/", async (req, res, next) => {
  try{
     const user = await UserModel.findById(req.session.currentUser._id).populate("guests")
     .populate("favouriteRecipes");
-    console.log(user.favouriteRecipes,"+++++++++++++++++++")
-    res.render("users", {css:"profile", guests: user.guests, userName: user.userName, diet: user.dietaryRequirements, favRecip : user.favouriteRecipes, img : user.profileImage, id : user._id});
+    res.render("users", {css: "profile", guests: user.guests, userName: user.userName, diet: user.dietaryRequirements, favRecip : user.favouriteRecipes, img : user.profileImage, id : user._id});
   }
   catch(error) {
     next(error);
@@ -85,7 +84,7 @@ router.get("/favRecipeDelete/:id", async (req, res, next) => {
   console.log(recipeId);
   console.log(req.session.currentUser._id);
   const user = await UserModel.findByIdAndUpdate(req.session.currentUser._id, {$pull : {favouriteRecipes: recipeId}}, {"new": true});
-  res.redirect('/users');
+  res.redirect(`/recipes/${recipeId}`);
   console.log(user);  
 });
 

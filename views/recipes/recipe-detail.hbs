@@ -39,7 +39,7 @@
             </div>
             {{#if isLoggedIn}}
             {{#if favCheck}}
-            <div class="btn"><a href="/users/favRecipe/{{recipe._id}}">Remove from favourites</a></div>
+            <div class="btn"><a href="/users/favRecipeDelete/{{recipe._id}}">Remove from favourites</a></div>
             {{else}}
             <div class="btn"><a href="/users/favRecipe/{{recipe._id}}">Add to favourites</a></div>
             {{/if}}
