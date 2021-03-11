@@ -22,7 +22,7 @@ router.get("/", async function (req, res, next) {
     const apiRes = await getFoodJoke(jokeRequest);
     const foodJoke = apiRes.data.text;
     console.log(foodJoke);
-    res.render("home", {randomRecipes, foodJoke});
+    res.render("home", {randomRecipes, foodJoke, js: "home"});
   } catch (err) {
     next(err);
   }
