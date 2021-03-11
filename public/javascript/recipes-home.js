@@ -2,7 +2,6 @@
 
 const recipes = document.querySelectorAll("#recipes-wrapper article");
 const boxDishType = document.querySelector("#dish-type-box");
-// const numRecipes = document.querySelector("#num-recipes");
 
 //===============diplay dish type checkboxes
 // get an array of arrays of dish attributes
@@ -66,11 +65,3 @@ function filterRecipes() {
 checkboxesDish.forEach((checkbox) =>
   checkbox.addEventListener("click", checkBoxHandler)
 );
-
-// //===============Indicate number of recipes found (after search or filter)
-// function showNumberOfResults() {
-//   let numResults = recipes.length;
-//   numRecipes.textContent = `Number of results: ${numResults}`;
-// }
-
-// showNumberOfResults();

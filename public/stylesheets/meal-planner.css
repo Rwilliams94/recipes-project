@@ -1,0 +1,18 @@
+#fridge-wrapper {
+    border: 3px solid black;
+    border-radius: 15px;
+    width: 80%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#fridge-wrapper img{
+    height: 250px;
+}
+
+#ingredient-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
