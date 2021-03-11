@@ -19,10 +19,10 @@ router.get("/", async function (req, res, next) {
  
   try {
     const randomRecipes = await RecipeModel.aggregate([{ $sample: { size: 3 } }]);
-    // const apiRes = await getFoodJoke(jokeRequest);
-    // const foodJoke = apiRes.data.text;
-    // console.log(foodJoke);
-    res.render("home", {randomRecipes/*foodJoke*/});
+    const apiRes = await getFoodJoke(jokeRequest);
+    const foodJoke = apiRes.data.text;
+    console.log(foodJoke);
+    res.render("home", {randomRecipes, foodJoke});
   } catch (err) {
     next(err);
   }
