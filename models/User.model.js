@@ -23,7 +23,7 @@ const userSchema = new Schema ({
     guests: [{type: Schema.Types.ObjectId, ref: "guests"}],
     registeredGuests: [{type: Schema.Types.ObjectId, ref: "user"}],
     recipesTried: [
-        {type: Schema.Types.ObjectId, ref: "recipe"},
+        // {type: Schema.Types.ObjectId, ref: "recipe"},
         {names: [String]}
     ],
     favouriteRecipes: [{type: Schema.Types.ObjectId, ref: "recipe"}]  // recipe Ids that need to be populated

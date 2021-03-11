@@ -4,7 +4,9 @@
     <img src={{img}} alt="profile-picture">
     <h2>{{userName}}</h2>
     <p>{{diet}}</p>
-    <div{{favRecip}}></div>
+
+    <div{{favRecip.title}}></div>
+
     <a href="/users/profileUpdate/{{id}}" class="edit-btn">edit</a><br>
 </section>
 
@@ -22,6 +24,12 @@
             <a href="/users/delete/{{this.id}}" class="delete-btn">x</a>
         </div>
         <br>
+    {{/each}}
+</section> .
+
+<section>
+    {{#each favRecip}}
+    <div>{{this.title}}</div>
     {{/each}}
 </section>
 
