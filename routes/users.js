@@ -97,7 +97,7 @@ router.get("/guestUpdate/:id", (req, res, next) => {
 
     
 router.post("/guestUpdate/:id", (req, res, next) => {
-  console.log("++++++++++++++++++++++++++");
+  console.log("++++++++++++++++++++++++++",req.params.id);
   GuestModel.findByIdAndUpdate({_id:req.params.id}, req.body, {new:true})
   .then(() => {
     res.redirect("/users");
