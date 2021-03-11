@@ -40,16 +40,21 @@ router.post("/", (req, res, next) => {
 });
 
 // details on selected recipe
-router.get("/:id", (req, res, next) => {
-  RecipeModel.findById(req.params.id)
-    .then((recipe) =>
+router.get("/:id", async (req, res, next) => {
+  try {
+   const recipe = await RecipeModel.findById(req.params.id)
+    const user = req.session.currentUser;
+    const favCheck = user.favouriteRecipes.includes(req.params.id);
       res.render("recipes/recipe-detail", {
         recipe,
         title: "Recipe details",
         js: "recipe-detail",
+        favCheck
       })
-    )
-    .catch(next);
+    
+  } catch(err) {
+    next(err)
+  }
 });
 
 
