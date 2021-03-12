@@ -10,23 +10,23 @@ function getFoodJoke(jokeRequest) {
 }
 
 
-router.get("/", async function (req, res, next) {res.render("home", {js: "home"} )})
+// router.get("/", async function (req, res, next) {res.render("home", {js: "home"} )})
 
 // render homepage with a random food joke (from API) and 3 random recipes (from local DB)
-// router.get("/", async function (req, res, next) {
-//   //randomRecipes is an array of 3 objects (recipe documents)
-//   // console.log(req.session.currentUser._id)
+router.get("/", async function (req, res, next) {
+  //randomRecipes is an array of 3 objects (recipe documents)
+  // console.log(req.session.currentUser._id)
  
-//   try {
-//     const randomRecipes = await RecipeModel.aggregate([{ $sample: { size: 3 } }]);
-//     // const apiRes = await getFoodJoke(jokeRequest);
-//     const foodJoke = apiRes.data.text;
-//     // console.log(foodJoke);
-    // res.render("home", {randomRecipes, /*foodJoke,*/ js: "home"});
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+  try {
+    const randomRecipes = await RecipeModel.aggregate([{ $sample: { size: 3 } }]);
+    const apiRes = await getFoodJoke(jokeRequest);
+    const foodJoke = apiRes.data.text;
+    console.log(foodJoke);
+    res.render("home", {randomRecipes, foodJoke, js: "home"});
+  } catch (err) {
+    next(err);
+  }
+});
 
 
 module.exports = router;
