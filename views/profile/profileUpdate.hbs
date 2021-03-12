@@ -1,7 +1,5 @@
 <h2>Edit Profile</h2>
-
 <form action="/users/profileUpdate/{{user.id}}" method="post" enctype="multipart/form-data">
-   
       <label for="user-name" class="label-name label" name="userName">edit name</label>
       <input id="user-name" type="text" class="input-text input" placeholder="name"
         value="{{user.userName}}" name="userName">

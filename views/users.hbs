@@ -1,6 +1,4 @@
-
 <h1>Welcome to your profile {{userName}}</h1>
-
 <div id="user-profile">
     <div id="profile-left">
         <img src={{img}} alt="profile-picture">
@@ -15,12 +13,10 @@
         <a href="/users/profileUpdate/{{id}}" class="btn">Update your profile</a><br>
     </div>
 </div>
-
 <h3>Your Guest list</h3>
 <div>
    <a href="/users/guest">+</a>
 </div>
-
 <div id="guest">
     {{#each guests}}
     <div class="guest-box">
@@ -46,5 +42,10 @@
         </article>
     {{/each}}
 </div>
+
+
+
+
+
 
 

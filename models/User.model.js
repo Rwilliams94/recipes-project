@@ -18,7 +18,7 @@ const userSchema = new Schema ({
         }
     },
     password: {type:String, required: true},
-    profileImage: {type : String, default : "https://res.cloudinary.com/adgranmous/image/upload/v1615381527/defaut-picture_c0qi4a.png"},
+    profileImage: {type : String, default : "https://res.cloudinary.com/adgranmous/image/upload/v1615499321/sssssssss_mp6pih.webp"},
     dietaryRequirements: [{type: String, enum: ["none", "vegan", "vegetarian", "glutenFree", "dairyFree"]} ],
     guests: [{type: Schema.Types.ObjectId, ref: "guests"}],
     registeredGuests: [{type: Schema.Types.ObjectId, ref: "user"}],
