@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const GuestModel = require("./../models/guest.model");
 const UserModel = require("./../models/User.model");
-const uploader = require("./../config/cloudinary");
+const fileUploader = require("./../config/cloudinary");
 const RecipeModel = require("./../models/Recipe.model");
 
 
@@ -11,8 +11,7 @@ const RecipeModel = require("./../models/Recipe.model");
 
 router.get("/", async (req, res, next) => {
  try{
-    const user = await UserModel.findById(req.session.currentUser._id).populate("guests")
-    .populate("favouriteRecipes");
+    const user = await UserModel.findById(req.session.currentUser._id).populate("guests").populate("favouriteRecipes");
     res.render("users", {css: "profile", guests: user.guests, userName: user.userName, diet: user.dietaryRequirements, favRecip : user.favouriteRecipes, img : user.profileImage, id : user._id});
   }
   catch(error) {
@@ -21,16 +20,6 @@ router.get("/", async (req, res, next) => {
 });
 
 
-//any guest added goes to user.guests
-router.post("/guestUpdate/:id", (req, res, next) => {
-  UserModel.findByIdAndUpdate(req.params.id, req.body, {new:true})
-  .then(() => {
-    res.redirect("/users");
-  })
-  .catch((error)=> {
-    next(error);
-  });
-});
 
 
 // updating profile infos
@@ -39,7 +28,6 @@ router.get("/profileUpdate/:id", (req, res, next) => {
   UserModel.findById(req.params.id)
   .then((user) => {
     res.render("profile/profileUpdate", {user} );
-    
   })
   .catch((dbError) => {
     next(dbError);
@@ -47,19 +35,20 @@ router.get("/profileUpdate/:id", (req, res, next) => {
 });
 
     
-router.post("/profileUpdate/:id", (req, res, next) => {
-  const { userName, dietaryRequirements, profileImage } = req.body;
-  UserModel.findByIdAndUpdate({_id:req.params.id}, {
-    userName,
-    dietaryRequirements,
-    profileImage
-  })
-  .then(() => {
-    res.redirect("/users");
-  })
-  .catch((error)=> {
+router.post("/profileUpdate/:id", fileUploader.single("profileImage"), async (req, res, next) => {
+  try {
+
+  const updateUser = {...req.body};
+    if (!req.file) {updateUser.profileImage = "https://res.cloudinary.com/adgranmous/image/upload/v1615381527/defaut-picture_c0qi4a.png"
+    } else {updateUser.profileImage = req.file.path}
+
+  const user = await UserModel.findByIdAndUpdate(req.params.id, updateUser, {new: true})
+  console.log(user);
+  res.redirect("/users");
+  
+  }catch (error) {
     next(error);
-  });
+  };
 });
 
 
@@ -122,16 +111,18 @@ router.get("/guestUpdate/:id", (req, res, next) => {
   });
 });
 
-    
-router.post("/guestUpdate/:id", (req, res, next) => {
-  console.log("++++++++++++++++++++++++++",req.params.id);
-  GuestModel.findByIdAndUpdate({_id:req.params.id}, req.body, {new:true})
-  .then(() => {
-    res.redirect("/users");
-  })
-  .catch((error)=> {
+
+router.post("/guestUpdate/:id", async (req, res, next) => {
+  try {  
+  const updateGuest = {...req.body};
+  console.log(updateGuest)
+  const guest = await GuestModel.findByIdAndUpdate(req.params.id, updateGuest, {new:true})
+  console.log(guest);
+  res.redirect("/users");
+  
+  }catch (error) {
     next(error);
-  });
+  };
 });
 
 //----------------Delete guest---------------------
@@ -150,4 +141,4 @@ router.get('/delete/:id', (req, res, next) => {
 
 
 
-module.exports = router;
+module.exports = router; 

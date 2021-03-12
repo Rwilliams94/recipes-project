@@ -1,32 +1,4 @@
-
-<<<<<<< HEAD
-
-<section id="user-profile">
-
-    <article id="profile">
-        <img src={{img}} alt="profile-picture">
-        <h2>{{userName}}</h2>
-        <p>{{diet}}</p>
-        <a class="edit-btn" href="/users/profileUpdate/{{id}}">edit</a>
-    </article>
-
-    <article id="guest">
-        <h3>Guest list</h3>
-                <a class="add-button" href="/users/guest">add new</a>
-        {{#each guests}}
-            <div class="guest-box">
-                <h4>{{this.name}}</h4>
-                {{#each this.dietaryRequirements}}
-                    <p>diet : {{this}}</p>
-                {{/each}}
-                <a class="edit-btn" href="/users/guestUpdate/{{this.id}}">edit</a>
-                <a class="delete-btn" href="/users/delete/{{this.id}}">delete</a>
-            </div>
-        {{/each}}
-    </article>
-=======
 <h1>Welcome to your profile {{userName}}</h1>
-
 <div id="user-profile">
     <div id="profile-left">
         <img src={{img}} alt="profile-picture">
@@ -41,12 +13,10 @@
         <a href="/users/profileUpdate/{{id}}" class="btn">Update your profile</a><br>
     </div>
 </div>
-
 <h3>Your Guest list</h3>
 <div>
    <a href="/users/guest">+</a>
 </div>
-
 <div id="guest">
     {{#each guests}}
     <div class="guest-box">
@@ -72,22 +42,10 @@
         </article>
     {{/each}}
 </div>
->>>>>>> d8b9aa7507ebf862a9aed40a9e53bac398ed6e3a
 
-    <article id="favRecipe-box">
-        <h3>Favorite Recipes</h3>
-        {{!-- <div> --}}
-            {{#each favRecip}}
-            <div class="fav-recip">
-                <h3>{{this.title}}</h3>
-                <img class="img-recip" src="{{this.image}}" alt="recipe img">
-                <a href="/users/favRecipeDelete/{{this.id}}" class="delete-btn">delete</a>
-            </div>
-            {{/each}}
-        {{!-- </div> --}}
-    </article>
 
-<<<<<<< HEAD
-</section>
-=======
->>>>>>> d8b9aa7507ebf862a9aed40a9e53bac398ed6e3a
+
+
+
+
+

@@ -51,24 +51,24 @@
 }
 
 
-#recipes-wrapper article{
+#recipes-wrapper .recipes {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     flex-direction: column;
     width: 15vw;
-    height: 220px;
-    margin-bottom: 20px;
-    border: black 1px solid;
+    height: 200px;
+    padding: 20px;
+    margin: 0 0 10px 0;
+    /* border: black 1px solid; */
     background: white;
 }
-
 
 #recipes-wrapper .photo {
     width: 15vw;
 
 }
 
-#recipes-wrapper .post-box h2 {
+#recipes-wrapper .recipes h2 {
     width: 15vw;
     text-decoration: none;
     font-size: 0.9rem;

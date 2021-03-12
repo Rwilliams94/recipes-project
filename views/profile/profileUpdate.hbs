@@ -1,6 +1,10 @@
 <h2>Edit Profile</h2>
 
+<<<<<<< HEAD
 <form class="updating-form" action="/users/profileUpdate/{{user.id}}" method="post">
+=======
+<form action="/users/profileUpdate/{{user.id}}" method="post" enctype="multipart/form-data">
+>>>>>>> 97f042b650fffc1e411aa12034c177dfa399fd43
    
       <label for="user-name" class="label-name label" name="userName">edit name</label>
       <input id="user-name" type="text" class="input-text input" placeholder="name"
@@ -14,7 +18,12 @@
         <option value="diaryFree">diaryFree</option>
       </select>
       <label for="profile-img" class="profile-img">Image</label>
+<<<<<<< HEAD
     <input id="profile-img" type="file" name="image" value="{{user.profileImage}}" >
     <br><br>
     <button class="edit-btn" >confirm</button>
+=======
+    <input type="file" id="profile-img" name="profileImage"  >
+    <button>confirm</button>
+>>>>>>> 97f042b650fffc1e411aa12034c177dfa399fd43
 </form>
