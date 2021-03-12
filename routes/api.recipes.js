@@ -2,6 +2,7 @@ const express = require("express");
 const router = new express.Router();
 const RecipeModel = require("./../models/Recipe.model.js");
 
+
 router.get("/", async (req, res, next) => {
   let query = {};
 
@@ -19,6 +20,7 @@ router.get("/", async (req, res, next) => {
     console.log(err);
   }
 });
+
 
 router.get("/results", async (req, res, next) => {
   console.log("req.query: ", req.query);

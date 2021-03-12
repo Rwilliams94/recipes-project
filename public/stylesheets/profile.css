@@ -1,9 +1,61 @@
+/* profile head */
+
+#user-profile {
+    margin: 20px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#user-profile h4 {
+    margin: 5px 0 20px 0;
+}
+
+.dietary-requirements {
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
+    padding: 10px 0;
+}
+
+
+#profile-right p {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+
+}
+
+
+#profile-right p:nth-child(even) {
+    background: turquoise
+}
+
+#profile-right p:nth-child(odd) {
+    background: lightblue
+}
+
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: forestgreen;
+    color: white;
+    width: 250px;
+    height: 35px;
+    margin: 15px 0;
+}
+
+
 /* guests */
 #user-profile {
     display: grid;
     grid-template: auto 1fr auto / auto 1fr auto;
 }
 
+<<<<<<< HEAD
 #profile {
     grid-column: 1 / 3;
     display: flex;
@@ -35,11 +87,71 @@
 .edit-btn {
     text-decoration: none;
     color:rgb(124, 177, 19)
+=======
+
+#guest {
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+};
+
+#guest .guest-box {
+    border: black solid 2px;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
-/* recipes */
+#guest h4 {
+    text-align: center;
+    
+}
+
+#guest p {
+    width: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+
+}
+
+#guest p:nth-child(even) {
+    background: turquoise
+}
+
+#guest p:nth-child(odd) {
+    background: lightblue
+}
+
+#guest .button-box {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#guest .guest-btn {
+    border: 1px solid black;
+    height: 20px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+>>>>>>> d8b9aa7507ebf862a9aed40a9e53bac398ed6e3a
+}
+
 
 #favRecipe-box {
+<<<<<<< HEAD
     grid-column: 1 / 4;
     display: flex;
     border-radius: 20px;
@@ -60,3 +172,55 @@
 .updating-form {
 background-color: rgb(255, 47, 92);
 }
+=======
+    width: 80vw;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    border-top: black solid 2px ;
+    border-bottom: black solid 2px ;
+    padding: 20px 0;
+    margin: 10px 0 50px 0;
+}
+
+#favRecipe-box .post-box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 20vw;
+    height: 260px;
+    padding: 10px;
+    border: black 1px solid;
+    background: white;
+}
+
+#favRecipe-box .photo {
+    width: 20vw;
+
+}
+
+#favRecipe-box .post-box h2 {
+    width: 20vw;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-align: center;
+
+}
+
+#favRecipe-box .delete-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: forestgreen;
+    
+    color: white;
+    width: 20vw;
+    height: 25px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+/* recipes */
+
+
+
+>>>>>>> d8b9aa7507ebf862a9aed40a9e53bac398ed6e3a

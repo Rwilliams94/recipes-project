@@ -64,7 +64,10 @@ letsCook.addEventListener("click", async (evt) => {
     } else {
       array.forEach((recipe) => {
         recipeBox.innerHTML += `
-            <li><a href="/recipes/${recipe._id}">${recipe.title}</a></li>
+            <div class="post-box">
+            <img class="photo" src="${recipe.image}" alt="recipe photo">
+            <a href="/recipes/${recipe._id}">${recipe.title}</a>
+            </div>
             `;
       });
     }
