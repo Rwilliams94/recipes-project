@@ -7,7 +7,7 @@
 
 body {
     font-family: Roboto;
-    background:white;
+    background:#f8f9fa;
     position: relative;
     height: 100%;
     margin: 0;
@@ -24,6 +24,13 @@ h5 {
 .text {
     font-family: Raleway;
 
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .content {
@@ -66,7 +73,7 @@ h5 {
 
 #page-links {
     display: flex;
-    width: 400px;
+    width: 500px;
     padding: 0px 35px;
     justify-content: space-between;
     align-items: center;
@@ -75,7 +82,7 @@ h5 {
 #page-links a {
     text-decoration: none;
     color: black;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 #sign-in {
@@ -91,25 +98,7 @@ h5 {
   color: black;
 }
 
-/* Footer bar */
 
-#footer-links {
-
-    display: flex;
-    width: 100vw;
-    height: 70px;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    border-top: black solid 10px;
-    flex-shrink: 0;
-}
-
-.ft-link {
-    width: 31px;
-    padding: 10px;
-
-}
 
 /* home page */
 
@@ -129,47 +118,31 @@ h5 {
     align-items: center;
 }
 
-#filter-bar-box {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    height: 100px;
-    align-items: center;
-    justify-content: center;
-
+#title-bar h1 {
+    font-size: 3.5rem;
 }
 
-#filter-results {
-    position: absolute;
-    top: 45px;
-    background: white;
-    border: black 1px solid;
-    width: 436px;
-    max-height: 500px; 
-    overflow: scroll;
-    list-style: none;
-    padding: 0px 10px;
-    z-index: 2;
 
+
+#home-page h3 {
+    margin: 30px;
 }
 
 #search-bar-box {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 100px;
+    width: 800px;
+    height: 45px;
     align-items: center;
     justify-content: center;
     background: whitesmoke;
     border-top: 2px black solid;
     border-bottom: 2px black solid;
-
 }
 
 #search_input {
-    width: 650px;
+    width: 700px;
     height: 30px;
     background: whitesmoke;
     border-style: none;
@@ -184,15 +157,16 @@ h5 {
  color: black;
  font-family: Roboto;
  font-size: 1.3rem;
+ text-align: center;
  
 }
 
 #search_results {
     position: absolute;
-    top: 52px;
+    top: 29px;
     background: white;
     border: black 1px solid;
-    width: 636px;
+    width: 700px;
     max-height: 500px; 
     overflow-y: scroll;
     overflow-x: hidden;
@@ -215,14 +189,13 @@ h5 {
 
 #recipe-roller {
   height: 400px;
-  width: 100vw;
-  margin: 60px 0px;
-  border-top: black 5px solid;
-  border-bottom: black 5px solid;
+  width: 1500px;
+  border-top: black 2px solid;
+  border-bottom: black 2px solid;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background: black;
+  margin-bottom: 50px;
 }
 
 #recipe-roller a {
@@ -394,43 +367,7 @@ h5 {
 
 /* Meal plan page */
 
-.check {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background: red;
-}
 
-.diet-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-decoration: none;
-    background: white;
-    border: 2px black solid;
-    padding: 5px;
-    height: 50px;
-    width: 140px;
-    margin: 20px;
-}
-
-.diet-btn.clicked {
-    background: gray;
-}
-
-.btn ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-}
-
-.btn h2 {
-    padding: 0;
-    margin: 0;
-}
 
 /* sign in/ up*/
 

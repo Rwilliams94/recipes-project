@@ -1,40 +1,50 @@
-<link rel='stylesheet' href='/stylesheets/{{css}}.css'/>
 
-<h1>Your Profile</h1>
+<h1>Welcome to your profile {{userName}}</h1>
 
-<section id="user-profile">
-    <img src={{img}} alt="profile-picture">
-    <h2>{{userName}}</h2>
-    <p>{{diet}}</p>
-   
-
-    <a href="/users/profileUpdate/{{id}}" class="edit-btn">edit</a><br>
-</section>
-
-    <h3>Your Guest list</h3>
-<section id="guest">
-    {{#each guests}}
-        <div class="guest-box">
-            <h4>{{this.name}}</h4>
-            {{#each this.dietaryRequirements}}
-                <p>diet : {{this}}</p>
-            {{/each}}
-            <a href="/users/guestUpdate/{{this.id}}" class="edit-btn">edit</a><br>
-            <a href="/users/delete/{{this.id}}" class="delete-btn">x</a>
-        </div>
-    {{/each}}
-</section>
-
- <div id="favRecipe-box" >
-        {{#each favRecip}}
-        <div>
-            {{this.title}} 
-            <a href="/users/favRecipeDelete/{{this.id}}" class="delete-btn">x</a>
-        </div>
-        {{/each}}
+<div id="user-profile">
+    <div id="profile-left">
+        <img src={{img}} alt="profile-picture">
     </div>
+    <div id="profile-right">
+        <h4>Your dietary requirements</h4>
+        <div class="dietary-requirements">       
+        {{#each diet}}
+        <p>{{this}}</p>
+        {{/each}}
+        </div>
+        <a href="/users/profileUpdate/{{id}}" class="btn">Update your profile</a><br>
+    </div>
+</div>
 
-
+<h3>Your Guest list</h3>
 <div>
    <a href="/users/guest">+</a>
 </div>
+
+<div id="guest">
+    {{#each guests}}
+    <div class="guest-box">
+        <h4>{{this.name}}</h4>
+        {{#each this.dietaryRequirements}}
+            <p>{{this}}</p>
+        {{/each}}
+        <div class="button-box">
+            <a class="guest-btn" href="/users/guestUpdate/{{this.id}}" >edit</a>
+            <a class="guest-btn" href="/users/delete/{{this.id}}">delete</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
+<h3>Your favourite recipes</h3>
+<div id="favRecipe-box">
+    {{#each favRecip}}
+        <article class="post-box">
+            <a href="/recipes/{{this.id}}">
+            <img class="photo" src="{{this.image}}" alt="recipe image"></a>
+            <a href="/recipes/{{this.id}}"><h2>{{this.title}}</h2></a>
+            <a class="delete-btn" href="/users/favRecipeDelete/{{this.id}}" >Remove from favourites?</a>
+        </article>
+    {{/each}}
+</div>
+
+

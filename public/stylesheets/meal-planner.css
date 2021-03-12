@@ -1,18 +1,169 @@
 #fridge-wrapper {
-    border: 3px solid black;
-    border-radius: 15px;
-    width: 80%;
-    margin-top: 30px;
+    background-image: url(https://previews.123rf.com/images/photopiano/photopiano1407/photopiano140700107/30169245-open-fridge-full-of-fresh-fruits-and-vegetables-healthy-food-background-organic-nutrition-health-car.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    width: 800px;
+    height: 400px;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    border-top: black solid 2px ;
+    border-bottom: black solid 2px ;
+    
+
 }
+
 
 #fridge-wrapper img{
     height: 250px;
 }
 
 #ingredient-search {
+    margin-top: 50px;
+    height: 250px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+
+#ingredient-search input {
+    height: 30px;
+    width: 250px;
+    border: 2px solid black;
+}
+
+#ingredient-search input::placeholder {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: forestgreen;
+    border: 2px solid black;
+    color: white;
+    width: 250px;
+    height: 35px;
+    margin: 25px 0;
+    cursor: pointer;
+}
+
+#guest-buttons {
+    width: 800px;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    border-top: black solid 2px ;
+    border-bottom: black solid 2px ;
+}
+
+
+#filter-bar-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#filter-results {
+    position: absolute;
+    top: 45px;
+    background: white;
+    border: black 1px solid;
+    width: 436px;
+    max-height: 500px; 
+    overflow: scroll;
+    list-style: none;
+    padding: 0px 10px;
+    z-index: 2;
+
+}
+
+.check {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: red;
+}
+
+.diet-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    background: white;
+    border: 2px black solid;
+    padding: 5px;
+    height: 50px;
+    width: 140px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.diet-btn.clicked {
+    background: forestgreen;
+    border: 1px solid black
+}
+
+.btn ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.btn h2 {
+    padding: 0;
+    margin: 0;
+}
+
+
+
+#recipes {
+    width: 80vw;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    border-top: black solid 2px ;
+    border-bottom: black solid 2px ;
+    padding-top: 20px;
+    margin: 10px;
+}
+
+#recipes .post-box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 15vw;
+    height: 220px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: black 1px solid;
+    background: white;
+}
+
+
+
+#recipes .photo {
+    width: 15vw;
+
+}
+
+#recipes .post-box h2 {
+    width: 25vw;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-align: center;
+
 }

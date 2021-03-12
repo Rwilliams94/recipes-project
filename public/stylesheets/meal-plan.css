@@ -1,8 +1,0 @@
-#guest-buttons {
-    display: flex;
-    flex-wrap: wrap;
-
-    border: black 2px solid ;
-
-    height: 100px;
-}

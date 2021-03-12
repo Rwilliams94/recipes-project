@@ -1,21 +1,23 @@
 <section id="results-wrapper">
-
-    <div id="dish-type-box">
+    <div id="filter-box">
         <h3>Filter by dish type:</h3>
+        <div id="dish-type-box">
+        </div>
     </div>
 
+    <div id="recipe-box">
+    <h2>Click on a recipe for details</h2>
     <div id="recipes-wrapper">
 
-        <h2>Click on a recipe for details</h2>
 
             {{#each recipes}}
-            <article dish="{{this.dishTypes}}">
+            <article class="post-box" dish="{{this.dishTypes}}">
                 <a href="/recipes/{{this.id}}">
-                <img src="{{this.image}}" alt="recipe image"></a>
-                <a href="/recipes/{{this.id}}">{{this.title}}</a>
-                <a href="/recipes/delete/{{this.id}}">X</a>
+                <img class="photo" src="{{this.image}}" alt="recipe image"></a>
+                <a href="/recipes/{{this.id}}"><h2>{{this.title}}</h2></a>
             </article>
             {{/each}}
 
+    </div>
     </div>
 </section>
