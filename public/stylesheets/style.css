@@ -362,10 +362,26 @@ h5 {
     line-height: 1.6;
 }
 
+/* profile update */
 
+.form-container.update {
+    margin-top: 20px;
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: black 2px solid; 
+    
+}
 
-
-/* Meal plan page */
+#form-update {
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
 
 

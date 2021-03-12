@@ -1,9 +1,10 @@
-<section class="form-container">
+<section class="update form-container">
 <h2>Edit Profile</h2>
-<form action="/users/profileUpdate/{{user.id}}" method="post" enctype="multipart/form-data">
-      <label for="user-name" class="label-name label" name="userName">edit name</label>
+<form id="form-update" action="/users/profileUpdate/{{user.id}}" method="post" enctype="multipart/form-data">
+      <label for="user-name" class="label-name label" name="userName">Edit name</label>
       <input id="user-name" type="text" class="input-text input" placeholder="name"
         value="{{user.userName}}" name="userName">
+      <label for="dietaryRequirements" class="label-name label">Dietary requirements</label>
       <select name="dietaryRequirements" multiple>
         <option value="none">none</option>
         <option value="vegan">vegan</option>
