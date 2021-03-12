@@ -39,7 +39,7 @@ router.post("/profileUpdate/:id", fileUploader.single("profileImage"), async (re
   try {
 
   const updateUser = {...req.body};
-    if (!req.file) {updateUser.profileImage = "https://res.cloudinary.com/adgranmous/image/upload/v1615381527/defaut-picture_c0qi4a.png"
+    if (!req.file) {updateUser.profileImage = "https://res.cloudinary.com/adgranmous/image/upload/v1615499321/sssssssss_mp6pih.webp"
     } else {updateUser.profileImage = req.file.path}
 
   const user = await UserModel.findByIdAndUpdate(req.params.id, updateUser, {new: true})

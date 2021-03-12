@@ -1,7 +1,7 @@
 <h1>Welcome to your profile {{userName}}</h1>
 <div id="user-profile">
     <div id="profile-left">
-        <img src={{img}} alt="profile-picture">
+        <img class="profile-picture" src={{img}} alt="profile-picture">
     </div>
     <div id="profile-right">
         <h4>Your dietary requirements</h4>
@@ -13,14 +13,15 @@
         <a href="/users/profileUpdate/{{id}}" class="btn">Update your profile</a><br>
     </div>
 </div>
-<h3>Your Guest list</h3>
+<h2>Your guest list</h2>
 <div>
-   <a href="/users/guest">+</a>
+   <a class="btn" href="/users/guest">Add a guest</a>
 </div>
 <div id="guest">
+    
     {{#each guests}}
-    <div class="guest-box">
-        <h4>{{this.name}}</h4>
+    <div class="guest-card">
+        <h2>{{this.name}}</h2>
         {{#each this.dietaryRequirements}}
             <p>{{this}}</p>
         {{/each}}
@@ -30,8 +31,10 @@
         </div>
     </div>
     {{/each}}
+
 </div>
-<h3>Your favourite recipes</h3>
+
+<h2>Your favourite recipes</h2>
 <div id="favRecipe-box">
     {{#each favRecip}}
         <article class="post-box">
